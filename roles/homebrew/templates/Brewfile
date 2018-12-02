@@ -49,6 +49,7 @@ brew "qt"
 brew "rbenv"
 brew "redis", restart_service: true, link: false
 brew "ripgrep"
+brew "selecta"
 brew "shellcheck"
 brew "sloccount"
 brew "thrift"
