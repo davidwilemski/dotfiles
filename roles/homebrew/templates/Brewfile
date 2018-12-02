@@ -1,0 +1,62 @@
+tap "homebrew/boneyard"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+cask "xquartz"
+brew "adns"
+brew "autoconf", link: false
+brew "clang-format", link: false
+brew "cmake", link: false
+brew "cscope", link: false
+brew "libtool"
+brew "gettext"
+brew "gist", link: false
+brew "git"
+brew "gmp"
+brew "gnutls"
+brew "libassuan"
+brew "libgcrypt"
+brew "libksba"
+brew "npth"
+brew "pinentry"
+brew "pstree"
+brew "psgrep"
+brew "gnupg"
+brew "go"
+brew "graphviz"
+brew "python"
+brew "httpie", link: false
+brew "imagemagick"
+brew "oniguruma", link: false
+brew "jq"
+brew "libxml2"
+brew "libyaml"
+brew "makedepend", link: false
+brew "md5sha1sum", link: false
+brew "memcached", restart_service: true
+brew "mongodb", restart_service: true, link: false
+brew "mosh"
+brew "mysql@5.6"
+brew "nvm", link: false
+brew "openssl@1.1"
+brew "pandoc"
+brew "php@7.0"
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "pyenv-virtualenvwrapper"
+brew "qt"
+brew "rbenv"
+brew "redis", restart_service: true, link: false
+brew "ripgrep"
+brew "shellcheck"
+brew "sloccount"
+brew "thrift"
+brew "tree"
+brew "tmux"
+brew "vim", args: ["with-lua"]
+brew "watchman", link: false
+brew "wget"
+brew "yarn", args: ["without-node"]
+brew "ykpers"
+brew "yubico-piv-tool"
