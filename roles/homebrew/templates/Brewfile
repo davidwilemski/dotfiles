@@ -6,6 +6,7 @@ tap "homebrew/services"
 cask "xquartz"
 brew "adns"
 brew "autoconf", link: false
+brew "bash-git-prompt"
 brew "clang-format", link: false
 brew "cmake", link: false
 brew "cscope", link: false
