@@ -26,7 +26,7 @@ brew "gnupg"
 brew "go"
 brew "graphviz"
 brew "python"
-brew "httpie", link: false
+brew "httpie"
 brew "imagemagick"
 brew "oniguruma", link: false
 brew "jq"
