@@ -4,3 +4,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-colors-solarized"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-coffee-script"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script

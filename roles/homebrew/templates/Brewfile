@@ -9,6 +9,7 @@ brew "autoconf", link: false
 brew "bash-git-prompt"
 brew "clang-format", link: false
 brew "cmake", link: false
+brew "coffeescript"
 brew "cscope", link: false
 brew "gettext"
 brew "gist", link: false
