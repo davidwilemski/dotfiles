@@ -1,4 +1,6 @@
 ---
 dotfile_files:
+  - .tmux
+  - .tmux.conf
   - .vim
   - .vimrc
