@@ -1,0 +1,6 @@
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/command-t"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/command-t
+	url = https://github.com/wincent/command-t
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-colors-solarized"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized

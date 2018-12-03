@@ -1,0 +1,33 @@
+# adapted from github.com/wincent/wincent's dotfiles role
+---
+- name: dotfiles | create backup directory
+  file: path=~/.backups state=directory
+
+- name: dotfiles | check for non-symlink originals
+  stat: path="~/{{ item }}"
+  register: original_check
+  loop: '{{dotfile_files}}'
+  changed_when: original_check.stat.exists and not original_check.stat.islnk
+
+- name: dotfiles | show original_check
+  debug:
+    var: original_check
+    verbosity: 2
+
+- name: dotfiles | backup originals
+  command:
+    mv ~/{{ item.0 }} ~/.backups/
+    creates=~/.backups/{{ item.0 }}
+    removes=~/{{ item.0 }}
+  loop:
+    '{{ (dotfile_files) | zip(original_check.results) | list }}'
+  when: item.1.stat.exists and not item.1.stat.islnk
+  loop_control:
+    label: '{{item.0}}'
+
+- name: dotfiles | create symlinks
+  file: src={{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}
+        path=~/{{ item }}
+        state=link
+        force=yes
+  loop: '{{dotfile_files}}'
