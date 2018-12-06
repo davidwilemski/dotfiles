@@ -8,7 +8,7 @@ brew "adns"
 brew "autoconf", link: false
 brew "bash-git-prompt"
 brew "clang-format", link: false
-brew "cmake", link: false
+brew "cmake"
 brew "coffeescript"
 brew "cscope", link: false
 brew "gettext"
