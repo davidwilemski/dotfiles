@@ -52,6 +52,7 @@ brew "rbenv"
 brew "redis", restart_service: true, link: false
 brew "ripgrep"
 brew "selecta"
+brew "svn"
 brew "shellcheck"
 brew "sloccount"
 brew "thrift"
