@@ -4,3 +4,4 @@ dotfile_files:
   - .tmux.conf
   - .vim
   - .vimrc
+  - bin
