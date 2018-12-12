@@ -199,6 +199,10 @@ autocmd BufWinLeave * call clearmatches()
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>k :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>k :ClangFormat<CR>
 
+" Rustfmt
+autocmd FileType rust vnoremap <buffer><Leader>k :!cargo fmt<CR>
+autocmd FileType rust nnoremap <buffer><Leader>k :!cargo fmt<CR><CR>
+
 " Racer
 let g:racer_cmd = "/Users/dtw/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
