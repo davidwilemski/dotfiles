@@ -226,6 +226,15 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   exec a:vim_command . " " . selection
 endfunction
 
+function! FuzzyBuffer()
+    redir! >/tmp/vim_buffers
+    buffers
+    redir END
+    redraw!
+    call SelectaCommand("cat /tmp/vim_buffers | grep -o '\".*\"' | sed 's/\"//g'", "", ":buffer")
+endfunction
+
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>t :call SelectaCommand("find * -type file ! -iname '*.pyc' ! -iname '*.swo' ! -iname '*.swp'", "", ":e")<cr>
+nnoremap <leader>b :call FuzzyBuffer()<cr>
