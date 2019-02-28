@@ -1,1 +1,3 @@
 *.retry
+roles/dotfiles/files/.vim/.netrwhist
+roles/dotfiles/files/.vim/view
