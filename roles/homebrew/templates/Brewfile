@@ -11,6 +11,7 @@ brew "clang-format", link: false
 brew "cmake"
 brew "coffeescript"
 brew "cscope", link: false
+brew "fpp"
 brew "gettext"
 brew "gist", link: false
 brew "git"
