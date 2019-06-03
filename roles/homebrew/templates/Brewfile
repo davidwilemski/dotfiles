@@ -1,4 +1,3 @@
-tap "homebrew/boneyard"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -41,7 +40,6 @@ brew "nvm", link: false
 brew "oniguruma", link: false
 brew "openssl@1.1"
 brew "pandoc"
-brew "php@7.0"
 brew "pinentry"
 brew "psgrep"
 brew "pstree"
