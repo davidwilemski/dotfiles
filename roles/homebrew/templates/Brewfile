@@ -21,6 +21,7 @@ brew "gnu-sed"
 brew "gnutls"
 brew "go"
 brew "graphviz"
+brew "hexyl"
 brew "httpie"
 brew "imagemagick"
 brew "jq"
@@ -62,6 +63,7 @@ brew "thrift"
 brew "tmux"
 brew "tree"
 brew "vim", args: ["with-lua"]
+brew "watch"
 brew "watchman", link: false
 brew "wget"
 brew "yarn", args: ["without-node"]
