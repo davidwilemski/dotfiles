@@ -17,6 +17,7 @@ brew "gist", link: false
 brew "git"
 brew "gmp"
 brew "gnupg"
+brew "gnu-sed"
 brew "gnutls"
 brew "go"
 brew "graphviz"
