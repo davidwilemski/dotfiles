@@ -13,3 +13,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/rust.vim"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
+[submodule "vcs-jump"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vcs-jump
+	url = https://github.com/wincent/vcs-jump
