@@ -16,3 +16,6 @@
 [submodule "vcs-jump"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vcs-jump
 	url = https://github.com/wincent/vcs-jump
+[submodule "ferret"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/ferret
+	url = https://github.com/wincent/ferret
