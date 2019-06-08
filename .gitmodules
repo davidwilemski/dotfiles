@@ -19,3 +19,9 @@
 [submodule "ferret"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/ferret
 	url = https://github.com/wincent/ferret
+[submodule "vim-slime"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime
+[submodule "eunuch"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
