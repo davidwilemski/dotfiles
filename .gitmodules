@@ -25,3 +25,6 @@
 [submodule "eunuch"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
+[submodule "commentary"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
