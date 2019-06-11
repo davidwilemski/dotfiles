@@ -244,3 +244,9 @@ nnoremap <leader>b :call FuzzyBuffer()<cr>
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{right-of}"}
+
+" Quickfix keybind
+nnoremap <Left> :cp<cr>
+nnoremap <Right> :cn<cr>
+nnoremap <Down> :cnf<cr>
+nnoremap <Up> :cpf<cr>
