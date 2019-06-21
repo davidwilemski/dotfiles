@@ -31,3 +31,6 @@
 [submodule "tmux-fpp"]
 	path = roles/dotfiles/files/.tmux/plugins/tmux-fpp
 	url = https://github.com/tmux-plugins/tmux-fpp
+[submodule "tmux-copycat"]
+	path = roles/dotfiles/files/.tmux/plugins/tmux-copycat
+	url = https://github.com/tmux-plugins/tmux-copycat
