@@ -34,3 +34,6 @@
 [submodule "tmux-copycat"]
 	path = roles/dotfiles/files/.tmux/plugins/tmux-copycat
 	url = https://github.com/tmux-plugins/tmux-copycat
+[submodule "tmux-open"]
+	path = roles/dotfiles/files/.tmux/plugins/tmux-open
+	url = https://github.com/tmux-plugins/tmux-open
