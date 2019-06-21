@@ -28,3 +28,6 @@
 [submodule "commentary"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "tmux-fpp"]
+	path = roles/dotfiles/files/.tmux/plugins/tmux-fpp
+	url = https://github.com/tmux-plugins/tmux-fpp
