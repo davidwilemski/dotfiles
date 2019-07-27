@@ -15,6 +15,7 @@ brew "fpp"
 brew "gettext"
 brew "gist", link: false
 brew "git"
+brew "git-annex"
 brew "gmp"
 brew "gnupg"
 brew "gnu-sed"
@@ -67,5 +68,6 @@ brew "watch"
 brew "watchman", link: false
 brew "wget"
 brew "yarn", args: ["without-node"]
+brew "youtube-dl"
 brew "ykpers"
 brew "yubico-piv-tool"
