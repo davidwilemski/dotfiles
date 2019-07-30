@@ -1,0 +1,5 @@
+- name: dotfiles | install selecta
+  file: src={{ ansible_env.PWD }}/roles/dotfiles/deps/selecta/selecta
+        path=~/bin/selecta
+        state=link
+        force=yes

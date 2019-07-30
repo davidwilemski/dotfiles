@@ -31,3 +31,6 @@
         state=link
         force=yes
   loop: '{{dotfile_files}}'
+- name: dotfiles | install selecta (debian)
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'

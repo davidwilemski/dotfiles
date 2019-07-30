@@ -37,3 +37,6 @@
 [submodule "tmux-open"]
 	path = roles/dotfiles/files/.tmux/plugins/tmux-open
 	url = https://github.com/tmux-plugins/tmux-open
+[submodule "selecta"]
+	path = roles/dotfiles/deps/selecta
+	url = https://github.com/garybernhardt/selecta
