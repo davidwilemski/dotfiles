@@ -1,0 +1,8 @@
+# don't put commands edited from history but not run back into history
+# thanks to: https://twobithistory.org/2019/08/22/readline.html
+set revert-all-at-newline on
+
+# vi mode
+set editing-mode vi
+set keymap vi-command
+

@@ -1,5 +1,6 @@
 ---
 dotfile_files:
+  - .inputrc
   - .tmux
   - .tmux.conf
   - .vim
