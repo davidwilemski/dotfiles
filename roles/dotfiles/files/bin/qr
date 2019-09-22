@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Taken from https://blog.jpalardy.com/posts/qr-codes-on-the-command-line/
+# call as: qr 'hello world'
+function qr() { qrencode "$1" -t ANSIUTF8 -o -; }
+
+qr "$1"

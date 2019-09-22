@@ -50,6 +50,7 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 brew "pyenv-virtualenvwrapper"
 brew "python"
+brew "qrencode"
 brew "qt"
 brew "rbenv"
 brew "redis", restart_service: true, link: false
