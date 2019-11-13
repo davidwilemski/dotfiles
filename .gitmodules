@@ -43,3 +43,6 @@
 [submodule "material"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/material.vim
 	url = https://github.com/kaicataldo/material.vim
+[submodule "lightline"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
