@@ -40,3 +40,6 @@
 [submodule "selecta"]
 	path = roles/dotfiles/deps/selecta
 	url = https://github.com/garybernhardt/selecta
+[submodule "material"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/material.vim
+	url = https://github.com/kaicataldo/material.vim
