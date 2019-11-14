@@ -46,3 +46,6 @@
 [submodule "lightline"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
+[submodule "yaml.vim"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/yaml.vim
+	url = https://github.com/vim-scripts/yaml.vim

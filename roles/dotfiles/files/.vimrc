@@ -127,12 +127,15 @@ let g:go_fmt_command = "goimports"
 "other
 au BufNewFile,BufRead *.jsx set filetype=javascript
 au BufNewFile,BufRead *.thrift set filetype=thrift
+au BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/pack/dtw/start/yaml.vim/colors/yaml.vim
 
 autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype c setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python nnoremap <leader>y :0,$!yapf --style='{based_on_style: pep8}'<Cr>
+autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
