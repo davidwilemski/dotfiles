@@ -49,3 +49,6 @@
 [submodule "yaml.vim"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/yaml.vim
 	url = https://github.com/vim-scripts/yaml.vim
+[submodule "vim-gh-line"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-gh-line
+	url = https://github.com/ruanyl/vim-gh-line
