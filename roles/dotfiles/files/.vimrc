@@ -266,3 +266,6 @@ nnoremap <Left> :cp<cr>
 nnoremap <Right> :cn<cr>
 nnoremap <Down> :cnf<cr>
 nnoremap <Up> :cpf<cr>
+
+" Linting setup for ALE
+let g:ale_linters = {'scala': ['sbtserver']}

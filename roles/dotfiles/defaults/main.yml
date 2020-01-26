@@ -6,3 +6,7 @@ dotfile_files:
   - .vim
   - .vimrc
   - bin
+
+dotfile_nested_files:
+  - path: .sbt/1.0/
+    file: global.sbt

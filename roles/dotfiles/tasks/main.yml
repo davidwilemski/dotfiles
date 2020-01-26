@@ -31,6 +31,20 @@
         state=link
         force=yes
   loop: '{{dotfile_files}}'
+- name: dotfiles | create nested symlinks directories
+  file:
+    path: '~/{{ item.path }}'
+    recurse: yes
+    state: directory
+    force: yes
+  loop: '{{dotfile_nested_files}}'
+- name: dotfiles | create nested symlinks
+  file:
+    src: '{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item.path }}/{{ item.file }}'
+    path: '~/{{ item.path }}/{{ item.file }}'
+    state: link
+    force: yes
+  loop: '{{dotfile_nested_files}}'
 - name: dotfiles | install selecta (debian)
   import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
