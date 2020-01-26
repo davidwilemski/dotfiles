@@ -1,0 +1,36 @@
+---
+- name: fonts | create backup directory
+  file:
+    path: ~/.font-backups
+    state: directory
+
+- name: fonts | check for non-symlink originals
+  stat:
+    path: "~/Library/Fonts/{{ item }}"
+  register: original_check
+  loop: '{{font_files}}'
+  changed_when: original_check.stat.exists and not original_check.stat.islnk
+
+- name: fonts | show original_check
+  debug:
+    var: original_check
+    verbosity: 2
+
+- name: fonts | backup originals
+  command:
+    cmd: "mv ~/Library/Fonts/{{ item.0 }} ~/.font-backups/"
+    creates: "~/.font-backups/{{ item.0 }}"
+    removes: "~/{{ item.0 }}"
+  loop:
+    '{{ (font_files) | zip(original_check.results) | list }}'
+  when: item.1.stat.exists and not item.1.stat.islnk
+  loop_control:
+    label: '{{item.0}}'
+
+- name: fonts | create symlinks
+  file:
+    src: "{{ ansible_env.PWD }}/roles/fonts/files/{{ item }}"
+    path: "~/Library/Fonts/{{ item }}"
+    state: link
+    force: yes
+  loop: '{{font_files}}'
