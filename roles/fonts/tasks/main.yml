@@ -28,9 +28,7 @@
     label: '{{item.0}}'
 
 - name: fonts | create symlinks
-  file:
+  copy:
     src: "{{ ansible_env.PWD }}/roles/fonts/files/{{ item }}"
-    path: "~/Library/Fonts/{{ item }}"
-    state: link
-    force: yes
+    dest: "~/Library/Fonts/{{ item }}"
   loop: '{{font_files}}'
