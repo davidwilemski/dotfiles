@@ -2,4 +2,3 @@
 - hosts: localhost
   roles:
     - { role: dotfiles, tags: dotfiles }
-    - { role: fonts, tags: fonts }
