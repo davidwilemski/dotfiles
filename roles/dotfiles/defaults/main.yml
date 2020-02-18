@@ -1,5 +1,6 @@
 ---
 dotfile_files:
+  - .gitignore-global
   - .inputrc
   - .tmux
   - .tmux.conf
