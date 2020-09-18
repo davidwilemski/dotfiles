@@ -52,3 +52,6 @@
 [submodule "vim-gh-line"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-gh-line
 	url = https://github.com/ruanyl/vim-gh-line
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/neoterm"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/neoterm
+	url = https://github.com/kassio/neoterm.git

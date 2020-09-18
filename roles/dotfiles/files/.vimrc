@@ -271,3 +271,15 @@ nnoremap <Up> :cpf<cr>
 
 " Linting setup for ALE
 let g:ale_linters = {'scala': ['sbtserver']}
+
+" Vim Terminal settings
+set termwinscroll=999999
+
+" Neoterm settings and mappings
+let g:neoterm_default_mod = 'vertical topleft'
+let g:neoterm_autoscroll = 1
+
+vnoremap <Leader>2 :TREPLSendSelection<cr>
+nnoremap <Leader>2 :TREPLSendLine<cr>
+nnoremap <Leader>0 :Ttoggle<cr>
+
