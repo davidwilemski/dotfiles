@@ -1,6 +1,9 @@
 " This must be first because it changes other options as a side effect
 set nocompatible
 
+" generate help text for plugins
+silent! helptags ALL
+
 set background=dark
 colorscheme material
 let g:material_theme_style = 'darker'
