@@ -6,3 +6,7 @@ set revert-all-at-newline on
 set editing-mode vi
 set keymap vi-command
 
+# Binds
+"\C-f": unix-filename-rubout
+"\C-X": vi-rubout
+
