@@ -55,3 +55,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/neoterm"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/neoterm
 	url = https://github.com/kassio/neoterm.git
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/lexima.vim"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/lexima.vim
+	url = https://github.com/cohama/lexima.vim
