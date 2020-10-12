@@ -109,9 +109,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 let g:vim_isort_map = '<C-i>'
 
-let g:neocomplete#enable_at_startup = 1
-
-
 " golang
 au BufRead,BufNewFile *.go set filetype=go
 
@@ -269,11 +266,6 @@ nnoremap <leader>t :call SelectaCommand("fd -H -t f", "", ":e")<cr>
 nnoremap <leader>b :call FuzzyBuffer()<cr>
 nnoremap <leader>g :call FuzzyGitStatus()<cr>
 
-
-" vim-slime
-let g:slime_target = "tmux"
-let g:slime_paste_file = "$HOME/.slime_paste"
-let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{right-of}"}
 
 " Quickfix keybind
 nnoremap <Left> :cp<cr>
