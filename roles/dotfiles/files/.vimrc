@@ -273,6 +273,8 @@ nnoremap <Up> :cpf<cr>
 
 " Linting setup for ALE
 let g:ale_linters = {'scala': ['sbtserver']}
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
 
 " Vim Terminal settings
 set termwinscroll=999999
