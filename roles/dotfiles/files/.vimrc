@@ -18,7 +18,7 @@ endif
 
 " lightline stuff
 set laststatus=2
-let g:lightline = { 'colorscheme': 'material_vim' }
+let g:lightline = { 'colorscheme': 'srcery_drk' }
 
 filetype plugin on 
 
@@ -61,8 +61,7 @@ set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                     "    case-sensitive otherwise
 set hlsearch      " highlight search terms
-nmap <silent> <leader>/ :nohlsearch<CR>
-nmap <silent> <ENTER> :nohlsearch<CR>
+nmap <silent> <leader><leader> :nohlsearch<CR>
 set incsearch     " show search matches as you type
 set pastetoggle=<F2>
 
@@ -133,6 +132,8 @@ au BufNewFile,BufRead *.jsx set filetype=javascript
 au BufNewFile,BufRead *.thrift set filetype=thrift
 au BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/pack/dtw/start/yaml.vim/colors/yaml.vim
+au BufNewFile,BufRead *.coffee set filetype=coffeescript
+au BufNewFile,BufRead *.scss set filetype=scss
 
 autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
@@ -140,6 +141,8 @@ autocmd Filetype c setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python nnoremap <leader>y :0,$!yapf --style='{based_on_style: pep8}'<Cr>
 autocmd FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype coffeescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype scss setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
