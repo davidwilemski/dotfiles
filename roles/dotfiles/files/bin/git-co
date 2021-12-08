@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-git for-each-ref refs/heads --format='%(refname)' | cut -d/ -f3- | selecta | xargs -I{} -n1 git checkout {}
+#git for-each-ref refs/heads --format='%(refname)' | cut -d/ -f3- | selecta | xargs -I{} -n1 git checkout {}
+git for-each-ref refs/heads --format='%(refname)' | cut -d/ -f3- | fzf | xargs -I{} -n1 git checkout {}

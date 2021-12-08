@@ -238,7 +238,7 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    let selection = system(a:choice_command . " | fzf-tmux --height 10 " . a:selecta_args)
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
     " leftovers from selecta on the screen
@@ -257,10 +257,17 @@ function! FuzzyBuffer()
     call SelectaCommand("cat /tmp/vim_buffers | grep -o '\".*\"' | sed 's/\"//g'", "", ":buffer")
 endfunction
 
+function! FuzzyGitStatus()
+    let cmd = "/bin/sh -c \"git status -z | tr '\0' '\n' | awk '{print $2}'\""
+    call SelectaCommand(cmd, "", ":e")<cr>
+endfunction
+
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>t :call SelectaCommand("find * -type f ! -iname '*.pyc' ! -iname '*.swo' ! -iname '*.swp' ! -iname '*.class'", "", ":e")<cr>
+nnoremap <leader>m :call SelectaCommand("find * -type f ! -iname '*.pyc' ! -iname '*.swo' ! -iname '*.swp' ! -iname '*.class' ! -ipath 'node_modules/*'", "", ":e")<cr>
+nnoremap <leader>t :call SelectaCommand("git ls-files", "", ":e")<cr>
 nnoremap <leader>b :call FuzzyBuffer()<cr>
+nnoremap <leader>g :call FuzzyGitStatus()<cr>
 
 
 " vim-slime
@@ -280,7 +287,26 @@ let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 
 " Vim Terminal settings
-set termwinscroll=999999
+if !has('nvim')
+    set termwinscroll=999999
+endif
+
+" Neoterm Terminal settings
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
+    inoremap <A-h> <C-\><C-N><C-w>h
+    noremap <A-j> <C-\><C-N><C-w>j
+    inoremap <A-k> <C-\><C-N><C-w>k
+    inoremap <A-l> <C-\><C-N><C-w>l
+    nnoremap <A-h> <C-w>h
+    nnoremap <A-j> <C-w>j
+    nnoremap <A-k> <C-w>k
+    nnoremap <A-l> <C-w>l
+endif
 
 " Neoterm settings and mappings
 let g:neoterm_default_mod = 'vertical topleft'
