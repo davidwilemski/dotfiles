@@ -61,3 +61,6 @@
 [submodule "roles/dotfiles/files/.tmux/plugins/srcery-tmux"]
 	path = roles/dotfiles/files/.tmux/plugins/srcery-tmux
 	url = https://github.com/srcery-colors/srcery-tmux/
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-nix"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-nix
+	url = https://github.com/LnL7/vim-nix
