@@ -26,6 +26,7 @@
     llvm_13
     neovim
     pstree
+    pv
     qrencode
     ripgrep
     rustc
