@@ -2,3 +2,6 @@
 roles/dotfiles/files/.vim/.netrwhist
 roles/dotfiles/files/.vim/view
 roles/dotfiles/files/bin/selecta
+
+result*
+.gcroots
