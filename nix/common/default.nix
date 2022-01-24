@@ -3,6 +3,7 @@
 {
   imports = [
     ./users
+    ./monitoring.nix
   ];
 
   boot.cleanTmpDir = true;

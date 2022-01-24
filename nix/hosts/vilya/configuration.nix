@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../common/users
+    ../../common
     # TODO: import home manager config
   ];
 
