@@ -12,6 +12,7 @@ let
     ./home/xsession
     ./home/i3status-rust.nix
     ./home/home-environment.nix
+    ./home/shell.nix
   ];
 
 in
@@ -20,11 +21,6 @@ in
   home.homeDirectory = "/home/dtw";
 
   inherit imports;
-
-  # only enable if you want home manager to manage
-  # bash's configuration
-  # programs.bash.enable = true;
-  programs.bash.enable = false;
 
   programs.home-manager.enable = true;
 
