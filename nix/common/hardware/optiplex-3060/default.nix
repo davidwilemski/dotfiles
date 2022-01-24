@@ -19,6 +19,8 @@ in {
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
   boot.kernelParams = [ "zfs.zfs_arc_max=1073741824" ];
 
+  security.sudo.wheelNeedsPassword = false;
+
   networking.interfaces.enp1s0.useDHCP = true;
 
   nixpkgs.config.allowUnfree = true;
