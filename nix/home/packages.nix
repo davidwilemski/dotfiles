@@ -20,6 +20,7 @@
     gpx-viewer
     hotspot
     httpie
+    inetutils
     killall
     lld_13
     lldb_13
