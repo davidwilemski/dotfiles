@@ -35,4 +35,6 @@
   users.mutableUsers = false;
 
   users.motd = builtins.readFile ./motd;
+
+  system.stateVersion = "21.11";
 }
