@@ -26,6 +26,7 @@
     lldb_13
     llvm_13
     neovim
+    nvd
     pstree
     pv
     qrencode
