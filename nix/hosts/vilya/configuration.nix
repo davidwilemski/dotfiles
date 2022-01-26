@@ -1,3 +1,4 @@
+# hardware: optiplex 3080
 { config, pkgs, ... }:
 
 {
