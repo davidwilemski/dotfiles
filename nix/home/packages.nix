@@ -3,7 +3,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    alacritty
     atop
     cargo
     clang_13
@@ -11,14 +10,11 @@
     docker-compose
     fd
     file
-    flameshot
     fpp
     fzf
     git
     git-annex
     git-revise
-    gpx-viewer
-    hotspot
     httpie
     inetutils
     killall
@@ -35,8 +31,6 @@
     #rustup
     tmux
     tree
-    vlc
-    zoom-us
     zstd
   ];
 }

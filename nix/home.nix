@@ -8,6 +8,7 @@ let
   # See https://github.com/workflow/nixos-config/blob/2a9b597810ae6a26b6182c00206871387fcfd8c4/system/desktop.nix#L31
   # and https://github.com/workflow/nixos-config/blob/2a9b597810ae6a26b6182c00206871387fcfd8c4/home/xsession/default.nix
   imports = [
+    ./home/gui-packages.nix
     ./home/packages.nix
     ./home/xsession
     ./home/i3status-rust.nix
@@ -27,6 +28,7 @@ in
   programs.neovim.vimAlias = true;
   programs.neovim.vimdiffAlias = true;
 
+  # moved to desktop.nix
   programs.alacritty = {
     enable = true;
   };
@@ -46,6 +48,7 @@ in
     ".inputrc".source = "${config.home.homeDirectory}/dotfiles/roles/dotfiles/files/.inputrc";
   };
 
+  # moved to desktop.nix
   services.flameshot = {
     enable = true;
     #settings = {
