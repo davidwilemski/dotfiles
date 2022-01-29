@@ -146,17 +146,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.prometheus = {
-    exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" ];
-        openFirewall = true;
-        #port = 9002;
-      };
-    };
-  };
-
   services.tailscale.enable = true;
   # TODO - re-enable (though doesn't matter that much, this machine is not exposed externally)
   # disabled because connecting to node exporter over tailscale was not working
