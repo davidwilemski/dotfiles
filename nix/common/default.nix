@@ -3,6 +3,7 @@
 {
   imports = [
     ./users
+    ./desktop.nix
     ./monitoring.nix
   ];
 

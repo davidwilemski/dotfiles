@@ -44,4 +44,17 @@
     ];
 
   };
+
+  # Main desktop
+  "faolin" = { config, pkgs, lib, ... }: {
+    deployment.targetUser = "root";
+    deployment.targetHost = "192.168.0.156";
+
+    networking.hostName = "faolin";
+
+    imports = [
+      ../../hosts/faolin/configuration.nix
+    ];
+
+  };
 }

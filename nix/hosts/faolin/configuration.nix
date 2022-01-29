@@ -6,10 +6,13 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
-      # <home-manager/nixos>  # Did a single user install so this isn't needed?
+
+      ../../common
     ];
+
+  dtw.desktop.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_5_15;
 
@@ -52,6 +55,8 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
+
+    xkbOptions = "caps:escape";
 
     videoDrivers = [ "nvidia" ];
     screenSection = ''

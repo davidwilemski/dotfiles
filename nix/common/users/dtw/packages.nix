@@ -31,6 +31,7 @@
     #rustup
     tmux
     tree
+    xcape
     zstd
   ];
 }
