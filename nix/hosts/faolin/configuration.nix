@@ -24,7 +24,7 @@
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     # This was the default nixos-config
     # "nixos-config=/etc/nixos/configuration.nix"
-    "nixos-config=/home/dtw/dotfiles/nix/configuration.nix"
+    "nixos-config=/home/dtw/dotfiles/nix/hosts/faolin/configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
