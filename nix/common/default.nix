@@ -20,4 +20,6 @@
     enable = true;
     dnssec = "false";
   };
+
+  programs.mosh.enable = true;
 }
