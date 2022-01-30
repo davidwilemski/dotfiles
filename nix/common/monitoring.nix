@@ -10,4 +10,10 @@
       };
     };
   };
+
+  services.cadvisor = {
+    enable = true;
+    listenAddress = "0.0.0.0";
+    port = 9101;
+  };
 }
