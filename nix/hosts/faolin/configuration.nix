@@ -119,9 +119,6 @@
     initialPassword = "wtd";
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
   };
-
-  # TODO remove if not needed
-  #home-manager.users.dtw = import
  
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
