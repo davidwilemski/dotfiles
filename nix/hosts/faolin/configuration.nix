@@ -100,6 +100,14 @@
     };
   };
 
+  # From https://github.com/Mic92/dotfiles/blob/c9971df4e35ce104a77b1c100ba1b51c3367d5fa/nixos/modules/xss-lock.nix
+  programs.xss-lock.enable = true;
+  programs.xss-lock.lockerCommand = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
+
+  systemd.user.services.xss-lock.serviceConfig = {
+    ExecStartPre = "${pkgs.xlibs.xset}/bin/xset s 300 300";
+  };
+
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.

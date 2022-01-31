@@ -34,7 +34,8 @@
     bindsym $mod+semicolon focus right
 
     # dtw: test lock
-    bindsym Mod4+l exec i3lock # --image ~/wallpaper/rivendel.png
+    #bindsym Mod4+l exec i3lock # --image ~/wallpaper/rivendel.png
+    bindsym Mod4+l exec ${pkgs.i3lock-fancy}/bin/i3lock-fancy
 
     # move focused window
     bindsym $mod+Shift+j move left
