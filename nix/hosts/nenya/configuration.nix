@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./gitea
   ];
 
   networking.hostName = "nenya";
