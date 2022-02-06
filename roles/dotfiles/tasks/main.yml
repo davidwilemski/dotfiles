@@ -48,3 +48,9 @@
 - name: dotfiles | install selecta (debian)
   import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
+- name: dotfiles | link .vim to neovim runtimepath
+  file:
+    src: ~/.vim/
+    path: ~/.config/nvim
+    state: link
+    force: yes

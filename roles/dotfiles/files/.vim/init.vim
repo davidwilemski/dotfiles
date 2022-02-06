@@ -278,8 +278,10 @@ let g:ale_linters = {'scala': ['sbtserver']}
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 
-" Vim Terminal settings
-if !has('nvim')
+" Vim/Neovim Terminal settings
+if has('nvim')
+    set scrollback=100000
+else
     set termwinscroll=999999
 endif
 

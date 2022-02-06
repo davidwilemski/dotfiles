@@ -61,3 +61,12 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-nix"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-nix
 	url = https://github.com/LnL7/vim-nix
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-classpath"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-classpath
+	url = https://github.com/tpope/vim-classpath
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/coc.nvim"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/coc-metals"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/coc-metals
+	url = https://github.com/scalameta/coc-metals
