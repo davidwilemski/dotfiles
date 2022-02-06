@@ -131,7 +131,7 @@ let g:go_fmt_command = "goimports"
 au BufNewFile,BufRead *.jsx set filetype=javascript
 au BufNewFile,BufRead *.thrift set filetype=thrift
 au BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/pack/dtw/start/yaml.vim/colors/yaml.vim
+au BufNewFile,BufRead *.yaml,*.yml so ~/.config/nvim/pack/dtw/start/yaml.vim/colors/yaml.vim
 au BufNewFile,BufRead *.coffee set filetype=coffeescript
 au BufNewFile,BufRead *.scss set filetype=scss
 
