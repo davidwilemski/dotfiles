@@ -8,6 +8,7 @@ in {
     ./hardware-configuration.nix
 
     ../../../common
+    ../../../common/services/sendzfssnapshot
     # TODO: import home manager config
     # perhaps relocate dotfiles/nix/home.nix (and nix/home/) to
     # nix/users/home-manager.nix or nix/home-manager?

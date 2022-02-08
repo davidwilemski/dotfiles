@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
 
     ../../common
+    ../../common/services/sendzfssnapshot
     # TODO: import home manager config
   ];
 
