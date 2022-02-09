@@ -9,7 +9,7 @@
 
     script = ''
       function snapshot_to_filename {
-          echo -n "''$(hostname)-''$(echo $1 | ${pkgs.gnused}/bin/sed 's#/#-#g')"
+          echo -n "''$(${pkgs.inetutils}/bin/hostname)-''$(echo $1 | ${pkgs.gnused}/bin/sed 's#/#-#g')"
       }
 
       # Only back up daily snapshots
@@ -23,7 +23,7 @@
       echo "sending $snapshot"
       ${pkgs.zfs}/bin/zfs send $snapshot |
         ${pkgs.zstd}/bin/zstd |
-        ssh dtw@jeod "cat > /volume1/zfs_snapshots/$(hostname)/$(snapshot_to_filename $snapshot).zst"
+        ${pkgs.openssh}/bin/ssh dtw@jeod "cat > /volume1/zfs_snapshots/$(${pkgs.inetutils}/bin/hostname)/$(snapshot_to_filename $snapshot).zst"
       done
 
       # TODO - delete older backups
