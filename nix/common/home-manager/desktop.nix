@@ -44,6 +44,7 @@ in {
       gpx-viewer
       hotspot
       vlc
+      xcape
       zoom-us
     ];
   };

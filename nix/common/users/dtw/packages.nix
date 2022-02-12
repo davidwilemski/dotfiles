@@ -21,6 +21,7 @@
     lld_13
     lldb_13
     llvm_13
+    morph
     neovim
     nvd
     pstree
@@ -31,7 +32,6 @@
     #rustup
     tmux
     tree
-    xcape
     zstd
   ];
 }
