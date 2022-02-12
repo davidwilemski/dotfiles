@@ -35,6 +35,7 @@
   virtualisation.docker.enable = true;
 
   services.openssh.enable = true;
+  programs.ssh.startAgent = true;
   users.mutableUsers = false;
 
   users.motd = builtins.readFile ./motd;
