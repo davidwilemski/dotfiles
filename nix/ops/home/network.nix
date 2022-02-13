@@ -18,8 +18,20 @@
   };
 
   "nenya" = { config, pkgs, lib, ... }: {
-    deployment.targetUser = "root";
-    deployment.targetHost = "192.168.0.184";
+    deployment = {
+      targetUser = "root";
+      targetHost = "192.168.0.184";
+      secrets = {
+        "loki-secrets.env" = {
+          source = "../secrets/loki-secrets.env";
+          destination = "/var/secrets/loki-secrets.env";
+          owner.user = "loki";
+          owner.group = "root";
+          permissions = "0400"; # this is the default
+          action = ["sudo" "systemctl" "restart" "dtw-loki.service"];
+        };
+      };
+    };
 
     networking.hostName = "nenya";
     networking.hostId = "5f25fbf9";

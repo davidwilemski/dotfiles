@@ -5,6 +5,8 @@
     ./users
     ./desktop.nix
     ./monitoring.nix
+
+    ./services/promtail
   ];
 
   boot.cleanTmpDir = true;

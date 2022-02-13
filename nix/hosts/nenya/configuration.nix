@@ -3,6 +3,8 @@
 {
   imports = [
     ./gitea
+    ./grafana
+    ./loki
   ];
 
   networking.hostName = "nenya";

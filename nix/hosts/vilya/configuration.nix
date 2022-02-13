@@ -34,6 +34,10 @@
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
 
+  dtw.promtail = {
+    enable = true;
+  };
+
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
   users.mutableUsers = false;

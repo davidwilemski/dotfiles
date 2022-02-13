@@ -152,6 +152,10 @@
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
 
+  dtw.promtail = {
+    enable = true;
+  };
+
   services.tailscale.enable = true;
   # TODO - re-enable (though doesn't matter that much, this machine is not exposed externally)
   # disabled because connecting to node exporter over tailscale was not working
