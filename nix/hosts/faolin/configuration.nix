@@ -150,6 +150,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  programs.ssh.startAgent = true;
 
   services.tailscale.enable = true;
   # TODO - re-enable (though doesn't matter that much, this machine is not exposed externally)
