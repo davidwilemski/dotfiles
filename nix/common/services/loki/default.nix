@@ -11,7 +11,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) escapeShellArgs mkEnableOption mkIf mkOption types;
+  inherit (lib) escapeShellArgs mkEnableOption mkIf mkOption mkMerge types;
 
   cfg = config.services.dtw.loki;
 
@@ -115,19 +115,24 @@ in {
         conf = if cfg.configFile == null
                then prettyJSON cfg.configuration
                else cfg.configFile;
-      in
-      {
-        ExecStart = "${pkgs.grafana-loki}/bin/loki --config.file=${conf} ${escapeShellArgs cfg.extraFlags}";
-        User = cfg.user;
-        Restart = "always";
-        PrivateTmp = true;
-        ProtectHome = true;
-        ProtectSystem = "full";
-        DevicePolicy = "closed";
-        NoNewPrivileges = true;
-        WorkingDirectory = cfg.dataDir;
-        EnvironmentFile = cfg.envFile;
-      };
+        serviceConfig = mkMerge [
+          {
+            ExecStart = "${pkgs.grafana-loki}/bin/loki --config.file=${conf} ${escapeShellArgs cfg.extraFlags}";
+            User = cfg.user;
+            Restart = "always";
+            PrivateTmp = true;
+            ProtectHome = true;
+            ProtectSystem = "full";
+            DevicePolicy = "closed";
+            NoNewPrivileges = true;
+            WorkingDirectory = cfg.dataDir;
+          }
+
+          (mkIf (cfg.envFile != null) {
+            EnvironmentFile = cfg.envFile;
+          })
+        ];
+      in serviceConfig;
     };
   };
 }
