@@ -132,7 +132,23 @@ in {
             EnvironmentFile = cfg.envFile;
           })
         ];
-      in serviceConfig;
+      in mkMerge [
+        {
+          ExecStart = "${pkgs.grafana-loki}/bin/loki --config.file=${conf} ${escapeShellArgs cfg.extraFlags}";
+          User = cfg.user;
+          Restart = "always";
+          PrivateTmp = true;
+          ProtectHome = true;
+          ProtectSystem = "full";
+          DevicePolicy = "closed";
+          NoNewPrivileges = true;
+          WorkingDirectory = cfg.dataDir;
+        }
+
+        (mkIf (cfg.envFile != null) {
+          EnvironmentFile = cfg.envFile;
+        })
+      ];
     };
   };
 }
