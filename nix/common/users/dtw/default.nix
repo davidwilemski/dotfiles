@@ -10,6 +10,7 @@
   ];
 
   programs.bash.enable = true;
+  programs.fish.enable = true;
 
   home.username = "dtw";
   home.homeDirectory = "/home/dtw";

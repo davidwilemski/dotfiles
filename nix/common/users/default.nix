@@ -5,6 +5,7 @@ let
 in {
   imports = [ <home-manager/nixos> ];
 
+  users.extraUsers.dtw.shell = pkgs.fish;
   users.users.dtw = {
     isNormalUser = true;
 
