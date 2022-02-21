@@ -4,7 +4,9 @@
   imports = [
     ./dotfiles.nix
     ./git.nix
+
     ./packages.nix
+    ./customPackages.nix
 
     ../../home-manager
   ];

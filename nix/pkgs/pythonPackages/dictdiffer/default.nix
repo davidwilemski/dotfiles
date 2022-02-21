@@ -1,14 +1,11 @@
-/* { lib */
-/* , buildPythonPackage */
-/* , fetchPypi */
-/* }: */
-{ buildPythonPackage
+{ lib
+, buildPythonPackage
 , fetchPypi
+, pytestCheckHook
+, pytest-cov
+, pytest-isort
+, setuptools-scm
 }:
-
-# Use in not-function form
-#with import <nixpkgs> { };
-#with python3Packages;
 
 buildPythonPackage {
   pname = "dictdiffer";
@@ -20,9 +17,20 @@ buildPythonPackage {
     sha256 = "sha256-F7rPX7/mE8zxttUSvXZuayH7eYgioTOqhgmLismZdXg=";
   };
 
-  # checkInputs = [ pytestCheckHook ];
-  #propagatedBuildInputs = [ tox ];
-  doCheck = false;
+  postPatch = ''
+    sed -e "s/--pycodestyle//" -i pytest.ini
+    sed -e "s/--pydocstyle//" -i pytest.ini
+    sed -e "/pytest-runner/d" -i setup.py
+  '';
+
+  buildInputs = [ setuptools-scm ];
+
+
+  checkInputs = [
+    pytestCheckHook
+    pytest-cov
+    pytest-isort
+  ];
 
   /* meta = with lib; { */
   /*   homepage = "https://github.com/inveniosoftware/dictdiffer"; */
