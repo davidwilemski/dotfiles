@@ -8,6 +8,8 @@
   };
 
   home.packages = with pkgs; [
+    _1password
+    atop
     cargo
     clang_13
     fd
@@ -19,6 +21,7 @@
     git-revise
     httpie
     inetutils
+    jq
     killall
     morph
     neovim
@@ -31,6 +34,7 @@
     #rustup
     tmux
     tree
+    xh
     zstd
   ];
 }
