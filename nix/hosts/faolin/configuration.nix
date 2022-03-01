@@ -12,7 +12,7 @@
       ../../common
     ];
 
-  dtw.desktop.enable = true;
+  dtw.linuxDesktop.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_5_15;
 

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, system ? builtins.currentSystem, ... }:
 
 {
   imports = [
@@ -6,6 +6,7 @@
     ./git.nix
 
     ./packages.nix
+    ./linuxPackages.nix
     ./customPackages.nix
 
     ../../home-manager
@@ -19,5 +20,6 @@
 
   home.username = "dtw";
   home.homeDirectory = "/home/dtw";
+
   programs.home-manager.enable = true;
 }

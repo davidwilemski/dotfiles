@@ -1,7 +1,7 @@
 { pkgs, lib, nixosConfig, ... }:
 
 {
-  config = lib.mkIf nixosConfig.dtw.desktop.enable {
+  config = lib.mkIf nixosConfig.dtw.linuxDesktop.enable {
     programs.i3status-rust = {
       enable = true;
       #bars.bottom = bars.default;
