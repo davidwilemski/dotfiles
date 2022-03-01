@@ -2,7 +2,7 @@
 
 {
 
-  config = lib.mkIf nixosConfig.dtw.desktop.enable {
+  config = lib.mkIf nixosConfig.dtw.linuxDesktop.enable {
     xsession.enable = true;
     xsession.scriptPath = ".hm-session"; # Ref: https://github.com/workflow/nixos-config/blob/2a9b597810ae6a26b6182c00206871387fcfd8c4/home/xsession/default.nix#L14
     xsession.pointerCursor = {

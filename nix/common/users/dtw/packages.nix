@@ -1,10 +1,13 @@
 {pkgs, lib, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    manual.manpages.enable = true;
+  };
 
   home.packages = with pkgs; [
-    atop
     cargo
     clang_13
     docker
@@ -19,9 +22,6 @@
     httpie
     inetutils
     killall
-    lld_13
-    lldb_13
-    llvm_13
     morph
     neovim
     nvd

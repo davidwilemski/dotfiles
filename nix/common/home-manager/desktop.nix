@@ -1,20 +1,14 @@
 { config, lib, pkgs, nixosConfig, ... }:
 
 let
-  cfg = config.dtw.desktop;
+  cfg = config.dtw.linuxDesktop;
 in {
   imports = [
     ./xsession
     ./i3status-rust.nix
   ];
 
-  # options = {
-  #   dtw.desktop = {
-  #     enable = lib.mkEnableOption "Enables GUI programs used in desktop environment";
-  #   };
-  # };
-
-  config = lib.mkIf nixosConfig.dtw.desktop.enable {
+  config = lib.mkIf nixosConfig.dtw.linuxDesktop.enable {
     programs.alacritty.enable = true;
 
     services.flameshot = {

@@ -2,8 +2,8 @@
 
 {
   options = {
-    dtw.desktop = {
-      enable = lib.mkEnableOption "Enables GUI programs used in desktop environment";
+    dtw.linuxDesktop = {
+      enable = lib.mkEnableOption "Enables GUI programs used in Linux desktop environment";
     };
   };
 }
