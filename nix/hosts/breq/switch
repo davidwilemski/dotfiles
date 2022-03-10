@@ -1,0 +1,2 @@
+#! /bin/sh
+darwin-rebuild switch -I darwin-config=$HOME/dotfiles/nix/hosts/breq/darwin-configuration.nix
