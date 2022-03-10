@@ -10,8 +10,6 @@
   home.packages = with pkgs; [
     cargo
     clang_13
-    docker
-    docker-compose
     fd
     file
     fpp
