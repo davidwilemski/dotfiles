@@ -2,7 +2,7 @@
 
 let
 
-  dtw_sbt_jdk11 = pkgs.sbt.override { jre = pkgs.jdk11; };
+  sbt_jdk11 = pkgs.sbt.override { jre = pkgs.jdk11; };
 
 in {
 
@@ -22,10 +22,12 @@ in {
   environment.systemPackages = with pkgs; [
     alacritty
     awscli2
+    fnm
     jdk11
     mysql80
     neovim
-    dtw_sbt_jdk11
+    rbenv
+    sbt_jdk11
     scala_2_12
     thrift
     vim
@@ -42,6 +44,11 @@ in {
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.bash.enable = true;
   programs.fish.enable = true;
+
+  programs.fish.interactiveShellInit = ''
+    status --is-interactive; and rbenv init - fish | source
+    fnm env | source
+  '';
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
