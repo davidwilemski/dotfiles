@@ -48,6 +48,14 @@ in {
   programs.fish.interactiveShellInit = ''
     status --is-interactive; and rbenv init - fish | source
     fnm env | source
+
+    if test -f "$HOME/.work/env"
+      source "$HOME/.work/env"
+    end
+
+    if test -f "$HOME/.work/functions"
+      source "$HOME/.work/functions"
+    end
   '';
 
   # Used for backwards compatibility, please read the changelog before changing.
