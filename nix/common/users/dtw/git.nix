@@ -1,11 +1,14 @@
 { config, pkgs, ... }:
 
-{
+let
+  gitEmailFile = builtins.readFile ../../../ops/secrets/git-config-email;
+  gitEmail = builtins.substring 0 ((builtins.stringLength gitEmailFile) - 1) gitEmailFile;
+in {
   programs.git = {
     enable = true;
 
     userName = "David Wilemski";
-    userEmail= "david@wilemski.org";
+    userEmail = gitEmail;
 
     delta = {
       enable = true;
