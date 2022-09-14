@@ -26,6 +26,7 @@ in {
     jdk11
     mysql80
     neovim
+    octant
     rbenv
     sbt_jdk11
     scala_2_12
