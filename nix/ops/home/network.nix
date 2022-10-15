@@ -6,6 +6,8 @@
   "narya" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
     deployment.targetHost = "192.168.0.195";
+    # deployment.targetHost = "narya";
+    deployment.tags = [ "homelab" ];
 
     networking.hostName = "narya";
     networking.hostId = "7e21fd2e";
@@ -21,6 +23,7 @@
     deployment = {
       targetUser = "root";
       targetHost = "192.168.0.184";
+      tags = [ "homelab" ];
       secrets = {
         "loki-secrets.env" = {
           source = "../secrets/loki-secrets.env";
@@ -46,6 +49,7 @@
   "vilya" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
     deployment.targetHost = "192.168.0.151";
+    deployment.tags = [ "homelab" ];
 
     networking.hostName = "vilya";
     networking.hostId = "eab830d1";
@@ -60,7 +64,8 @@
   # Main desktop
   "faolin" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    deployment.targetHost = "192.168.0.156";
+    # deployment.targetHost = "192.168.0.156";
+    deployment.targetHost = "faolin-1";
 
     networking.hostName = "faolin";
 
@@ -68,5 +73,17 @@
       ../../hosts/faolin/configuration.nix
     ];
 
+  };
+
+  # Router (tinypc 4x2.5gbe
+  "barahir" = { config, pkgs, lib, ... }: {
+    deployment.targetUser = "root";
+    deployment.targetHost = "10.12.48.1";
+
+    networking.hostName = "barahir";
+
+    imports = [
+      ../../hosts/barahir/configuration.nix
+    ];
   };
 }
