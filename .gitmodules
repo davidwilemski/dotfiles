@@ -64,9 +64,27 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-classpath"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-classpath
 	url = https://github.com/tpope/vim-classpath
-[submodule "roles/dotfiles/files/.vim/pack/dtw/start/coc.nvim"]
-	path = roles/dotfiles/files/.vim/pack/dtw/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
-[submodule "roles/dotfiles/files/.vim/pack/dtw/start/coc-metals"]
-	path = roles/dotfiles/files/.vim/pack/dtw/start/coc-metals
-	url = https://github.com/scalameta/coc-metals
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/plenary.nvim"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/nvim-cmp"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/nvim-lspconfig"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/cmp-nvim-lsp"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-vsnip"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/cmp-vsnip"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/cmp-vsnip
+	url = https://github.com/hrsh7th/cmp-vsnip
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/cmp-buffer"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/cmp-path"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
