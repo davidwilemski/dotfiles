@@ -22,8 +22,10 @@ in {
   environment.systemPackages = with pkgs; [
     alacritty
     awscli2
+    coursier
     fnm
     jdk11
+    metals
     mysql80
     neovim
     octant
