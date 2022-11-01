@@ -5,6 +5,7 @@
     ./gitea
     ./grafana
     ./loki
+    ../../services/caddy
   ];
 
   networking.hostName = "nenya";
