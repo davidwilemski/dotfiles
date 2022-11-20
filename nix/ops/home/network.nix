@@ -5,7 +5,7 @@
 
   "narya" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    deployment.targetHost = "192.168.0.196";
+    deployment.targetHost = "192.168.0.195";
 
     networking.hostName = "narya";
     networking.hostId = "7e21fd2e";
