@@ -152,6 +152,7 @@
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
 
+  dtw.systemd-resolved.enable = true;
   dtw.promtail = {
     enable = true;
   };

@@ -12,14 +12,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
 
   security.sudo.wheelNeedsPassword = false;
 
   # let's make this a router
   # https://francis.begyn.be/blog/nixos-home-router
+  # https://skogsbrus.xyz/blog/2022/06/12/router/
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.forwarding" = true;
+    "net.ipv6.conf.all.forwarding" = true;
   };
 
   networking = {
@@ -46,10 +47,14 @@
           address = "10.12.48.1";
           prefixLength = 24;
       }];
+      # IOT devices
+      # XXX - trying to disable internet access for these
       enp3s0.ipv4.addresses = [{
           address = "10.12.49.1";
           prefixLength = 24;
       }];
+      # Guest network: firewall partially locked down for internal and external
+      # access
       enp4s0.ipv4.addresses = [{
           address = "10.12.50.1";
           prefixLength = 24;
@@ -65,133 +70,100 @@
       # };
     };
 
-    # nat.enable = true;
-    # nat.externalInterface = "enp1s0";
-    # nat.internalInterfaces = [ "enp2s0" "enp4s0" ];
-    firewall.enable = false;
-    nftables = {
+    nat = {
       enable = true;
-      ruleset = ''
-        table inet filter {
-          # enable flow offloading for better throughput
-          flowtable f {
-            hook ingress priority 0;
-            devices = { enp1s0, enp2s0 };
-          }
+      externalInterface = "enp1s0";
+      internalInterfaces = [ "enp2s0" "enp4s0" ];
+    };
 
-          chain output {
-            type filter hook output priority 100; policy accept;
-          }
+    # https://skogsbrus.xyz/blog/2022/06/12/router/#firewall
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "enp2s0" ];
 
-          chain input {
-            type filter hook input priority filter; policy drop;
+      interfaces = {
+        # ingress: wan to internal
+        enp1s0 = {
+          allowedTCPPorts = [ ];
+          allowedUDPPorts = [ ];
+        };
 
-            # Allow trusted networks to access the router
-            iifname {
-              "enp2s0",
-              "enp3s0",
-              "enp4s0",
-            } counter accept
+        # iot to wan
+        enp3s0 = {
+          allowedTCPPorts = [ ];
+          allowedUDPPorts = [ ];
+        };
 
-            # # allow llmnr
-            # udp dport llmnr accept
-            # # allow mDNS
-            # tcp dport mdns accept
+        # guest to wan
+        # https://serverfault.com/a/424226
+        enp4s0 = {
+          allowedTCPPorts = [
+            # DNS
+            53
 
-            # # Accept mDNS for avahi reflection
-            iifname {
-                "enp2s0",
-                "enp3s0",
-                "enp4s0",
-            } tcp dport { llmnr } counter accept
-            iifname {
-                "enp2s0",
-                "enp3s0",
-                "enp4s0",
-            } udp dport { mdns, llmnr } counter accept
+            # HTTP(S)
+            80
+            443
+            110
 
-            # Allow returning traffic from wan and drop everthing else
-            iifname "enp1s0" ct state { established, related } counter accept
-            iifname "enp1s0" log drop
+            # Email (pop3, pop3s)
+            995
+            114
+            # Email (imap, imaps)
+            993
+            # Email (SMTP Submission RFC 6409)
+            587
+          ];
+          allowedUDPPorts = [
+            # DNS
+            53
 
-          }
+            # DHCP
+            67
+            68
 
-          # Didn't work on initial test of making this system my router
-          chain forward {
-            type filter hook forward priority filter; policy drop;
+            # NTP
+            123
+          ];
+        };
+      };
 
-            # enable flow offloading for better throughput
-            ip protocol { tcp, udp } flow offload @f
 
-            # Allow trusted network WAN access
-            iifname {
-                    "enp2s0",
-                    "enp3s0",
-                    "enp4s0",
-            } oifname {
-                    "enp1s0",
-            } counter accept comment "Allow trusted LAN to WAN"
-
-            # Allow established WAN to return
-            iifname {
-                    "enp1s0",
-            } oifname {
-                    "enp2s0",
-                    "enp3s0",
-                    "enp4s0",
-            } ct state established,related counter accept comment "Allow established back to LANs"
-          }
-        }
-
-        table ip nat {
-          chain prerouting {
-            type nat hook output priority filter; policy accept;
-          }
-
-          # Setup NAT masquerading on the wan interface
-          chain postrouting {
-            type nat hook postrouting priority filter; policy accept;
-            oifname "enp1s0" masquerade
-          }
-        }
-      '';
     };
   };
 
-  services.dhcpd4 = {
+  services.resolved.enable = false;
+  services.dnsmasq = {
     enable = true;
-    interfaces = [ "enp2s0" "enp4s0" ];
+    servers = [ "9.9.9.9" "1.1.1.1" ];
     extraConfig = ''
-      option domain-name-servers 9.9.9.9, 1.1.1.1;
-      option subnet-mask 255.255.255.0;
+      domain-needed
+      dhcp-authoritative
+      interface=enp2s0
+      interface=enp3s0
+      interface=enp4s0
+      dhcp-range=internal,10.12.48.50,10.12.48.250,255.255.255.0,24h
+      dhcp-range=iot,10.12.48.11,10.12.48.250,255.255.255.0,24h
+      dhcp-range=guest,10.12.48.11,10.12.48.250,255.255.255.0,24h
 
-      subnet 10.12.48.0 netmask 255.255.255.0 {
-        option broadcast-address 10.12.48.255;
-        option routers 10.12.48.1;
-        interface enp2s0;
-        range 10.12.48.100 10.12.48.254;
-      }
+      # jeod
+      dhcp-host=00:11:32:cd:c8:75,10.12.48.2
 
-      subnet 10.12.49.0 netmask 255.255.255.0 {
-        option broadcast-address 10.12.48.255;
-        option routers 10.12.49.1;
-        interface enp3s0;
-        range 10.12.49.100 10.12.49.254;
-      }
+      # vilya 
+      dhcp-host=b0:4f:13:07:39:75,10.12.48.3
+      # nenya
+      dhcp-host=6c:2b:59:f3:46:57,10.12.48.4
+      # narya
+      dhcp-host=b8:85:84:b6:c9:ff,10.12.48.5
 
-      subnet 10.12.50.0 netmask 255.255.255.0 {
-        option broadcast-address 10.12.48.255;
-        option routers 10.12.50.1;
-        interface enp4s0;
-        range 10.12.50.100 10.12.50.254;
-      }
-
-      # subnet 10.12.60.0 netmask 255.255.255.0 {
-      #   option broadcast-address 10.12.48.255;
-      #   option routers 10.12.60.1;
-      #   interface iot;
-      #   range 10.12.60.100 10.12.60.254;
-      # }
+      # Broadlink remotes (need static ip for home assistant)
+      # TODO see if I can move these to the iot subnet
+      # RM4-Pro-Universal-Remote-Kitchen
+      dhcp-host=a0:43:b0:55:0b:06,10.12.48.20
+      # RM4-Universal-Remote (bedroom)
+      dhcp-host=a0:43:b0:2c:9B:d4,10.12.48.21
+      # RM4-Universal-Remote-office
+      dhcp-host=a0:43:b0:2c:d0:47,10.12.48.22
     '';
   };
 
@@ -222,7 +194,12 @@
     enable = true;
   };
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    # We explicitly configure firewall ports above
+    openFirewall = false;
+  };
+
   users.mutableUsers = false;
 
   system.stateVersion = "21.11";

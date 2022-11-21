@@ -14,6 +14,7 @@
     "net.ipv4.conf.all.forwarding" = true;
   };
 
+  dtw.systemd-resolved.enable = true;
   networking = {
     useDHCP = false;
     # nameserver = [ <SOMETHING> ];

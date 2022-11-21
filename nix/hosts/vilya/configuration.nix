@@ -34,6 +34,7 @@
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
 
+  dtw.systemd-resolved.enable = true;
   dtw.promtail = {
     enable = true;
   };

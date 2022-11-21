@@ -7,6 +7,7 @@
     ./monitoring.nix
 
     ./services/promtail
+    ./services/systemd-resolved
   ];
 
   boot.cleanTmpDir = true;
@@ -17,11 +18,6 @@
     SystemMaxUse=100M
     MaxFileSec=14day
   '';
-
-  services.resolved = {
-    enable = true;
-    dnssec = "false";
-  };
 
   programs.mosh.enable = true;
 }
