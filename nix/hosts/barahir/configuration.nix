@@ -137,6 +137,8 @@
     enable = true;
     servers = [ "9.9.9.9" "1.1.1.1" ];
     extraConfig = ''
+      cache-size=2500
+
       domain-needed
       dhcp-authoritative
       interface=enp2s0
@@ -189,6 +191,11 @@
 
   services.tailscale.enable = true;
   # virtualisation.docker.enable = true;
+
+  services.prometheus.exporters.dnsmasq = {
+    enable = true;
+    leasesPath = "/var/lib/dnsmasq/dnsmasq.leases";
+  };
 
   dtw.promtail = {
     enable = true;
