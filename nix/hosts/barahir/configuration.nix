@@ -79,7 +79,7 @@
     # https://skogsbrus.xyz/blog/2022/06/12/router/#firewall
     firewall = {
       enable = true;
-      trustedInterfaces = [ "enp2s0" ];
+      trustedInterfaces = [ "enp2s0" "tailscale0" ];
 
       interfaces = {
         # ingress: wan to internal
