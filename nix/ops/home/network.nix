@@ -5,7 +5,7 @@
 
   "narya" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    deployment.targetHost = "192.168.0.195";
+    deployment.targetHost = "10.12.48.5";
     # deployment.targetHost = "narya";
     deployment.tags = [ "homelab" ];
 
@@ -22,7 +22,7 @@
   "nenya" = { config, pkgs, lib, ... }: {
     deployment = {
       targetUser = "root";
-      targetHost = "192.168.0.184";
+      targetHost = "10.12.48.4";
       tags = [ "homelab" ];
       secrets = {
         "loki-secrets.env" = {
@@ -48,7 +48,7 @@
 
   "vilya" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    deployment.targetHost = "192.168.0.151";
+    deployment.targetHost = "10.12.48.3";
     deployment.tags = [ "homelab" ];
 
     networking.hostName = "vilya";
