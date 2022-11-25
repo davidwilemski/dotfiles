@@ -22,11 +22,11 @@ in {
 
   security.sudo.wheelNeedsPassword = false;
 
-  networking.interfaces.enp1s0.useDHCP = false;
+  networking.interfaces.enp1s0.useDHCP = true;
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   users.users.root.openssh.authorizedKeys.keyFiles = [ (fetchKeys "davidwilemski") ];
 
