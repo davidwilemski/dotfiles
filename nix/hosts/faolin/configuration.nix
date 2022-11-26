@@ -105,7 +105,7 @@
   programs.xss-lock.lockerCommand = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
 
   systemd.user.services.xss-lock.serviceConfig = {
-    ExecStartPre = "${pkgs.xlibs.xset}/bin/xset s 300 300";
+    ExecStartPre = "${pkgs.xorg.xset}/bin/xset s 300 300";
   };
 
   # services.xserver.xkbOptions = "eurosign:e";
@@ -191,7 +191,6 @@
   fonts.fonts = [
     pkgs.font-awesome
     pkgs.font-awesome_4
-    pkgs.font-awesome-ttf
   ];
 
   virtualisation.docker.enable = true;

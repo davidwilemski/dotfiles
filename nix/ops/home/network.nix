@@ -65,7 +65,7 @@
   "faolin" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
     # deployment.targetHost = "192.168.0.156";
-    deployment.targetHost = "faolin-1";
+    deployment.targetHost = "faolin";
 
     networking.hostName = "faolin";
 
