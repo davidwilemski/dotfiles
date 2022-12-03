@@ -20,6 +20,7 @@
 
   home.username = "dtw";
   home.homeDirectory = "/home/dtw";
+  home.stateVersion = "18.09";
 
   programs.home-manager.enable = true;
 }

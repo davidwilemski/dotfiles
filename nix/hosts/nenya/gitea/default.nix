@@ -4,7 +4,7 @@
   services.gitea = {
     enable = true;
     dump.enable = true;
-    disableRegistration = true;
+
 
     domain = "nenya";
 
@@ -15,6 +15,9 @@
       };
       server = {
         SSH_DOMAIN = "nenya"; # supposedly defaults to %(DOMAIN)s but not working with top-level domain setting?
+      };
+      service = {
+        DISABLE_REGISTRATION = true;
       };
     };
   };

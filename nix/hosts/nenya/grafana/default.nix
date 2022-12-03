@@ -4,14 +4,19 @@
   services.grafana = {
     enable = true;
 
-    addr = "0.0.0.0";
 
-    analytics.reporting.enable = false; # don't report to stats.grafana.net
+    settings = {
+      analytics.reporting_enabled = false; # don't report to stats.grafana.net
 
-    auth.anonymous.enable = true;
+      "auth.anonymous".enabled = true;
 
-    domain = "nenya";
-    port = 3001;
+      server = {
+        domain = "nenya";
+        http_port = 3001;
+        http_addr = "0.0.0.0";
+      };
+    };
+
 
   };
 }
