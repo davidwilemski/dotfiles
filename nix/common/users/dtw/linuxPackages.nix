@@ -8,5 +8,6 @@
     lld_13
     lldb_13
     llvm_13
+    xdg-utils
   ];
 }

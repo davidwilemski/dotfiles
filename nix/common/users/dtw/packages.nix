@@ -14,6 +14,7 @@
     clang_13
     fd
     file
+    flyctl
     fpp
     fzf
     git
@@ -30,6 +31,7 @@
     pv
     qrencode
     ripgrep
+    rust-analyzer
     rustc
     #rustup
     tmux
