@@ -14,8 +14,6 @@
 
   dtw.linuxDesktop.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

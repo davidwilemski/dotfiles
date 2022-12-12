@@ -17,6 +17,6 @@
   # See https://github.com/workflow/nixos-config/blob/2a9b597810ae6a26b6182c00206871387fcfd8c4/system/desktop.nix#L31
   # and https://github.com/workflow/nixos-config/blob/2a9b597810ae6a26b6182c00206871387fcfd8c4/home/xsession/default.nix
 
-  systemd.user.startServices = true;
+  # systemd.user.startServices = true;
 
 }
