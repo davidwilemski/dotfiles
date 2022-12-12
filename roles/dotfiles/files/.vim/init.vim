@@ -381,7 +381,7 @@ lua <<EOF
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   require'lspconfig'.metals.setup{}
 
-  require'lspconfig'.rls.setup{
+  require'lspconfig'.rust_analyzer.setup{
     settings = {
       rust = {
         build_on_save = false,
