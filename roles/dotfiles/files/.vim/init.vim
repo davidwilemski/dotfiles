@@ -388,17 +388,23 @@ lua <<EOF
       },
     },
   }
+  require'lspconfig'.solargraph.setup{}
 
 EOF
 " END nvim-cmp
 
 " LSP bindings
+" TODO instead of this maybe do something like 
+" https://github.com/neovim/nvim-lspconfig/tree/2c70b7b0095b4bbe55aaf0dc27a2581d1cafe491#keybindings-and-completion
 nnoremap <M-CR> :lua vim.lsp.buf.code_action()<CR>
 vnoremap <M-CR> :lua vim.lsp.buf.range_code_action()<CR>
 nnoremap <leader>K :lua vim.lsp.buf.hover()<CR>
 vnoremap <leader>k :lua vim.lsp.buf.range_formatting()<CR>
 nnoremap <leader>k :lua vim.lsp.buf.formatting()<CR>
 " TODO improve this:
-nnoremap gr :lua vim.lsp.buf.rename('') 
+vnoremap <leader>rn :lua vim.lsp.buf.rename('') 
+nnoremap gD :lua vim.lsp.buf.declaration()<CR>
+nnoremap gd :lua vim.lsp.buf.definition()<CR>
 " Not supported by metals / current lsp integration:
 " autocmd FileType scala nnoremap gd :lua vim.lsp.buf.type_definition()<CR>
+autocmd FileType scala nnoremap gr :lua vim.lsp.buf.references()<CR>
