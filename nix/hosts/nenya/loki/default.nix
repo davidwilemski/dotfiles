@@ -56,7 +56,7 @@
         };
 
         aws = {
-          s3 = ''http://loki:''${MINIO_SECRET_KEY}@100.104.10.83:9000/loki'';
+          s3 = ''http://loki:''${MINIO_SECRET_KEY}@100.65.207.115:9000/loki'';
           s3forcepathstyle = true;
         };
       };
