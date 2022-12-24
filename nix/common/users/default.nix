@@ -12,6 +12,7 @@ in {
     extraGroups = [
       "wheel"
       "docker"
+      "cdrom"
     ];
 
     openssh.authorizedKeys.keys = (builtins.filter builtins.isString (builtins.split "\n" (builtins.readFile (fetchKeys "davidwilemski"))));
