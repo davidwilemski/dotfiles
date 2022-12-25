@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 
+let
+  system = builtins.currentSystem;
+  isLinux = (builtins.elem "linux" (builtins.split "(-)" system));
+in
 {
   imports = [
     ./users
@@ -19,5 +23,6 @@
     MaxFileSec=14day
   '';
 
+  programs.atop.enable = isLinux;
   programs.mosh.enable = true;
 }
