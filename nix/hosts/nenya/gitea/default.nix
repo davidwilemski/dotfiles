@@ -7,7 +7,7 @@
 
 
     rootUrl = "https://gitea.flowerbox.house/";
-    domain = "gitea.flowerbox.house";
+    domain = "git.flowerbox.house";
 
     settings = {
       metrics = {
@@ -15,7 +15,7 @@
         # TODO Add secret auth token
       };
       server = {
-        # SSH_DOMAIN = "nenya"; # supposedly defaults to %(DOMAIN)s but not working with top-level domain setting?
+        SSH_DOMAIN = "git.flowerbox.house"; # supposedly defaults to %(DOMAIN)s but not working with top-level domain setting?
       };
       service = {
         DISABLE_REGISTRATION = true;
