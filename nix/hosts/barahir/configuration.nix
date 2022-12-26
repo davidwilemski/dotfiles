@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./caddy
 
     ../../common
     ../../common/services/sendzfssnapshot
@@ -84,7 +85,7 @@
       interfaces = {
         # ingress: wan to internal
         enp1s0 = {
-          allowedTCPPorts = [ ];
+          allowedTCPPorts = [ 80 443 ];
           allowedUDPPorts = [ ];
         };
 
