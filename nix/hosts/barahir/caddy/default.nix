@@ -14,21 +14,21 @@ in
       }
     '';
 
+    virtualHosts."actual.flowerbox.house" = {
+      hostName = "actual.flowerbox.house";
+      listenAddresses = [ "100.99.34.64" ];
+      useACMEHost = "flowerbox.house";
+      extraConfig = ''
+        reverse_proxy nenya:5006
+      '';
+    };
+
     virtualHosts."caddy-metrics.flowerbox.house" = {
       hostName = "caddy-metrics.flowerbox.house";
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
         metrics /metrics
-      '';
-    };
-
-    virtualHosts."grafana.flowerbox.house" = {
-      hostName = "grafana.flowerbox.house";
-      listenAddresses = [ "100.99.34.64" ];
-      useACMEHost = "flowerbox.house";
-      extraConfig = ''
-        reverse_proxy nenya:3001
       '';
     };
 
@@ -41,6 +41,15 @@ in
       '';
     };
 
+    virtualHosts."grafana.flowerbox.house" = {
+      hostName = "grafana.flowerbox.house";
+      listenAddresses = [ "100.99.34.64" ];
+      useACMEHost = "flowerbox.house";
+      extraConfig = ''
+        reverse_proxy nenya:3001
+      '';
+    };
+
     virtualHosts."home-assistant.flowerbox.house" = {
       hostName = "home-assistant.flowerbox.house";
       listenAddresses = [ "100.99.34.64" ];
@@ -50,12 +59,30 @@ in
       '';
     };
 
+    virtualHosts."music.flowerbox.house" = {
+      hostName = "music.flowerbox.house";
+      listenAddresses = [ "100.99.34.64" ];
+      useACMEHost = "flowerbox.house";
+      extraConfig = ''
+        reverse_proxy jeod:8800
+      '';
+    };
+
     virtualHosts."prometheus.flowerbox.house" = {
       hostName = "prometheus.flowerbox.house";
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
         reverse_proxy jeod:9090
+      '';
+    };
+
+    virtualHosts."synology.flowerbox.house" = {
+      hostName = "synology.flowerbox.house";
+      listenAddresses = [ "100.99.34.64" ];
+      useACMEHost = "flowerbox.house";
+      extraConfig = ''
+        reverse_proxy jeod:5000
       '';
     };
 
