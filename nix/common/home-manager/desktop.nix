@@ -42,6 +42,7 @@ in {
       alacritty
       flameshot
       gpx-viewer
+      handbrake
       hotspot
       vlc
       xcape

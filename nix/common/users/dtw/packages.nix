@@ -20,7 +20,6 @@
     git
     git-annex
     git-revise
-    handbrake
     httpie
     inetutils
     jq
