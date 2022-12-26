@@ -8,6 +8,21 @@ in
     enable = true;
     email = "caddy@wilemski.org";
 
+    globalConfig = ''
+      servers {
+        metrics
+      }
+    '';
+
+    virtualHosts."caddy-metrics.flowerbox.house" = {
+      hostName = "caddy-metrics.flowerbox.house";
+      listenAddresses = [ "100.99.34.64" ];
+      useACMEHost = "flowerbox.house";
+      extraConfig = ''
+        metrics /metrics
+      '';
+    };
+
     virtualHosts."grafana.flowerbox.house" = {
       hostName = "grafana.flowerbox.house";
       listenAddresses = [ "100.99.34.64" ];
