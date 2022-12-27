@@ -32,6 +32,16 @@ in
       '';
     };
 
+    virtualHosts."flowerboxarchive.com" = {
+      hostName = "flowerboxarchive.com";
+      listenAddresses = [ "100.99.34.64" ];
+      useACMEHost = "flowerboxarchive.com";
+      extraConfig = ''
+        reverse_proxy jeod:8000
+      '';
+    };
+
+
     virtualHosts."gitea.flowerbox.house" = {
       hostName = "gitea.flowerbox.house";
       listenAddresses = [ "100.99.34.64" ];
@@ -96,11 +106,24 @@ in
       dnsProvider = "namecheap";
       credentialsFile = "/var/lib/secrets/certs.secret";
     };
+
+    certs."flowerboxarchive.com" = {
+      domain = "*.flowerboxarchive.com";
+      extraDomainNames = [ "flowerboxarchive.com" ];
+      dnsProvider = "namecheap";
+      credentialsFile = "/var/lib/secrets/certs.secret";
+    };
   };
 
   config.systemd.services.dtw-dns-acme-namecheap-conf = {
-    requiredBy = ["acme-flowerbox.house.service"];
-    before = ["acme-flowerbox.house.service"];
+    requiredBy = [
+      "acme-flowerbox.house.service"
+      "acme-flowerboxarchive.com.service"
+    ];
+    before = [
+      "acme-flowerbox.house.service"
+      "acme-flowerboxarchive.com.service"
+    ];
     unitConfig = {
       ConditionPathExists = "!/var/lib/secrets/certs.secret";
     };
