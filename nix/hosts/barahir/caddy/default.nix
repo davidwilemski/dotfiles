@@ -19,6 +19,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy nenya:5006
       '';
     };
@@ -28,6 +29,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         metrics /metrics
       '';
     };
@@ -37,6 +39,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerboxarchive.com";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy jeod:8000
       '';
     };
@@ -47,6 +50,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy nenya:3000
       '';
     };
@@ -56,6 +60,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy nenya:3001
       '';
     };
@@ -65,6 +70,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy nenya:8123
       '';
     };
@@ -74,6 +80,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy jeod:8800
       '';
     };
@@ -83,6 +90,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy jeod:9090
       '';
     };
@@ -92,6 +100,7 @@ in
       listenAddresses = [ "100.99.34.64" ];
       useACMEHost = "flowerbox.house";
       extraConfig = ''
+        encode zstd gzip
         reverse_proxy jeod:5000
       '';
     };
