@@ -6,7 +6,6 @@
   "narya" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
     deployment.targetHost = "10.12.48.5";
-    # deployment.targetHost = "narya";
     deployment.tags = [ "homelab" ];
 
     networking.hostName = "narya";

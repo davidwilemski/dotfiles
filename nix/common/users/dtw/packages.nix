@@ -26,6 +26,7 @@
     killall
     morph
     neovim
+    niv
     nvd
     pstree
     pv

@@ -34,6 +34,24 @@ in
       '';
     };
 
+    virtualHosts."davidwilemski.com" = {
+      hostName = "davidwilemski.com";
+      listenAddresses = [ "206.55.186.217" ];
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy narya:3030
+      '';
+    };
+
+    virtualHosts."dev.davidwilemski.com" = {
+      hostName = "dev.davidwilemski.com";
+      listenAddresses = [ "206.55.186.217" ];
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy narya:3030
+      '';
+    };
+
     virtualHosts."flowerboxarchive.com" = {
       hostName = "flowerboxarchive.com";
       listenAddresses = [ "100.99.34.64" ];
