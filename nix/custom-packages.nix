@@ -7,8 +7,8 @@ let
   micropub-rs-repo = pkgs.fetchFromGitHub {
     owner = "davidwilemski";
     repo = "micropub-rs";
-    rev = "028f7921f72551c6f642cb540bccb2be0985f833";
-    sha256 = "2YC//E2QQhgteLeleBe3/cTfDPEZvzOm1fN28GMSTp8=";
+    rev = "edc917e258abe907b7e312d5322fcc348ccd0456";
+    sha256 = "O9Xi7agn2pJL3gOMpf6gB6tOjFjA8OtGgoSL1pPifgo=";
   };
 
   rustyblobjectstore-repo = pkgs.fetchFromGitHub {
@@ -51,8 +51,8 @@ rec {
       src = pkgs.fetchFromGitHub {
         owner = "davidwilemski";
         repo = "blue-penguin";
-        rev = "5351e1e079d992b92822deb92b99ece25c70f8f5";
-        sha256 = "PYAC0Mc0iu3xYcAcJ1g4JjNrmrIlhdOZjFq5aLjd0sI=";
+        rev = "dba9e52c4f3789e20d8a95920d007a30a6b769ad";
+        sha256 = "90PjSbdCoAB0pbBLovNVXJjDtVmnTneIigj6Q3Lq1V4=";
       };
 
       dontPatch = true;

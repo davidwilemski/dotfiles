@@ -105,7 +105,7 @@ in
         RUST_LOG = "trace";
         DATABASE_URL = "${cfg.dataDir}/${cfg.micropubDb}";
         MICROPUB_RS_TEMPLATE_DIR = "${customPkgs.blue-penguin-theme}";
-        MICROPUB_RS_MEDIA_ENDPOINT = "https://davidwilemski.com/media";
+        MICROPUB_RS_MEDIA_ENDPOINT = "https://www.davidwilemski.com/media";
         # TODO expose nix config for this so the store and micropub server could be operated on separate machines.
         MICROPUB_RS_BLOBJECT_STORE_BASE_URI = "http://localhost:3031";
       };

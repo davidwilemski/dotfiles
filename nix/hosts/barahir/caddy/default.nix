@@ -38,6 +38,14 @@ in
       hostName = "davidwilemski.com";
       listenAddresses = [ "206.55.186.217" ];
       extraConfig = ''
+        redir https://www.davidwilemski.com{uri}
+      '';
+    };
+
+    virtualHosts."o.davidwilemski.com" = {
+      hostName = "o.davidwilemski.com";
+      listenAddresses = [ "206.55.186.217" ];
+      extraConfig = ''
         encode zstd gzip
         reverse_proxy narya:3030
       '';
