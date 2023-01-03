@@ -35,6 +35,7 @@
     rust-analyzer
     rustc
     #rustup
+    sqlite
     tmux
     tree
     xh
