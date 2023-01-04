@@ -92,9 +92,34 @@ in
         The sqlite filename in the dataDir that the rustyblobjectstore server will use for the DATABASE_URL.
       '';
     };
+
+    extraConfig = mkOption {
+      type = types.attrs;
+      default = {};
+      description = mdDoc ''
+        Object used to create a toml file to configure the micropub server.
+      '';
+    };
+
+    serverConfig = mkOption {
+      type = types.attrs;
+      internal = true;
+    };
   };
 
   config = mkIf cfg.enable {
+    # apply values from structured options before extraConfig
+    dtw.services.davidwilemski-com.serverConfig = lib.mkMerge [
+      (mkIf (!lib.hasAttr "database_url" cfg.extraConfig) {
+        database_url = "${cfg.dataDir}/${cfg.micropubDb}";
+      })
+      (mkIf (!lib.hasAttr "template_dir" cfg.extraConfig) {
+        template_dir = customPkgs.blue-penguin-theme;
+      })
+
+      cfg.extraConfig
+    ];
+
     systemd.services."davidwilemski.com-micropub-rs" = {
       after = [ "network.target" ];
       wants = [];
@@ -102,21 +127,22 @@ in
       wantedBy = [ "multi-user.target" ];
 
       environment = {
-        RUST_LOG = "trace";
-        DATABASE_URL = "${cfg.dataDir}/${cfg.micropubDb}";
-        MICROPUB_RS_TEMPLATE_DIR = "${customPkgs.blue-penguin-theme}";
-        MICROPUB_RS_MEDIA_ENDPOINT = "https://www.davidwilemski.com/media";
-        # TODO expose nix config for this so the store and micropub server could be operated on separate machines.
-        MICROPUB_RS_BLOBJECT_STORE_BASE_URI = "http://localhost:3031";
+        RUST_LOG = "debug";
       };
 
       serviceConfig = {
         Type = "exec";
-        ExecStart = "${cfg.package}/bin/server";
+        ExecStart =
+        let
+          # construct config
+          formatToml = pkgs.formats.toml {};
+          siteConfig = formatToml.generate "davidwilemski_micropub_server.toml" cfg.serverConfig;
+        in ''${cfg.package}/bin/server ${siteConfig}'';
 
         User = cfg.user;
         Group = cfg.group;
 
+        WorkingDirectory = cfg.dataDir;
         ReadWriteDirectories = cfg.dataDir;
         StateDirectory = mkIf (cfg.dataDir == "/var/lib/micropub-rs") [ "micropub-rs" ];
       };
@@ -141,6 +167,7 @@ in
         User = cfg.user;
         Group = cfg.group;
 
+        WorkingDirectory = cfg.dataDir;
         ReadWriteDirectories = cfg.dataDir;
         StateDirectory = mkIf (cfg.dataDir == "/var/lib/micropub-rs") [ "micropub-rs" ];
       };
