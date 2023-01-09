@@ -4,6 +4,8 @@
   imports = [
     ../../common/services/sendzfssnapshot
     ../../common/services/davidwilemski.com
+
+    ./caddy
   ];
 
   networking.hostName = "narya";
