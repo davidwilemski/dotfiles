@@ -17,6 +17,14 @@ let
     rev = "ec4cf9ba27c5d5be21a8ad3a31de9ffe5455e5c1";
     sha256 = "wUKOzOMaNU5dRlSE7I39l1Wwz5tLWQRJvM1TJoq9pwo=";
   };
+
+  # pynvml-nixpkgs = import (pkgs.fetchFromGitHub {
+  #   owner = "davidwilemski";
+  #   repo = "nixpkgs";
+  #   rev = "27513ed374ff36b7039ae7d594c85f28f49962ac";
+  #   sha256 = "gTSz9POZmYkr1idx/Sm3kaDfNvyDvMRhITqfpf1pzDw=";
+  # }) { inherit system; };
+  pynvml-nixpkgs = import (/home/dtw/dev/nixos/nixpkgs) { inherit system; };
 in
 rec {
   csv-diff = import ./pkgs/csv-diff {
@@ -66,5 +74,24 @@ rec {
 
       dontFixup = true;
     };
+
+    # nvidia-ml-py = pkgs.pythonPackages.nvidia-ml-py.overrideAttrs (finalAttrs: previousAttrs: {
+    #   patches = [ ./pynvml.patch ];
+    # });
+
+    pynvml = pkgs.python3Packages.pynvml.overrideAttrs (finalAttrs: previousAttrs: {
+      # patches = [ ./pynvml.patch ];
+      patches = [ ./0001-locate-libnvidia-ml.so.1-on-NixOS.patch ];
+    });
+
+    atop = pkgs.atop.overrideAttrs (finalAttrs: previousAttrs: {
+      # pythonPath = previousAttrs.pythonPath ++ [ pynvml ]; 
+      pythonPath = [ pynvml-nixpkgs.python3Packages.pynvml ];
+      # The below lines _do work_
+      # buildInputs = previousAttrs.buildInputs ++ [ pkgs.python310Packages.nvidia-ml-py ];  # THIS MAY NOT BE NEEDED
+      # pythonPath = [ pkgs.python310Packages.nvidia-ml-py ]; 
+
+      # patches = previousAttrs.patches ++ [ ./atop-py3compat-1.patch ];
+    });
 }
 

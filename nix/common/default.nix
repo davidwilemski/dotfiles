@@ -3,6 +3,8 @@
 let
   system = builtins.currentSystem;
   isLinux = (builtins.elem "linux" (builtins.split "(-)" system));
+
+  customPkgs = import ../custom-packages.nix { };
 in
 {
   imports = [
@@ -24,5 +26,6 @@ in
   '';
 
   programs.atop.enable = isLinux;
+  programs.atop.package = customPkgs.atop;
   programs.mosh.enable = true;
 }
