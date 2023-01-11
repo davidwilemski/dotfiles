@@ -64,6 +64,16 @@ in
       '';
     };
 
+    virtualHosts."loki.flowerbox.house" = {
+      hostName = "loki.flowerbox.house";
+      listenAddresses = [ "100.106.235.107" ];
+      useACMEHost = "flowerbox.house";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy nenya:3100
+      '';
+    };
+
     virtualHosts."music.flowerbox.house" = {
       hostName = "music.flowerbox.house";
       listenAddresses = [ "100.106.235.107" ];
