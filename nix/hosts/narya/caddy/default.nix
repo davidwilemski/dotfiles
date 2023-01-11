@@ -159,4 +159,17 @@ in
       chmod 400 /var/lib/secrets/certs.secret
     '';
   };
+
+  config.dtw.promtail.extraScrapeConfigs = [
+    {
+      job_name = "caddy-access-logs";
+      static_configs = [
+        {
+          labels = {
+            __path__ = "/var/log/caddy/*.log";
+          };
+        }
+      ];
+    }
+  ];
 }

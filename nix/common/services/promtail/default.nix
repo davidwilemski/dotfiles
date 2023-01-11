@@ -6,6 +6,11 @@ let
 in {
   options.dtw.promtail = {
     enable = lib.mkEnableOption "Enables promtail config on host";
+
+    extraScrapeConfigs = lib.mkOption {
+      type = lib.types.listOf lib.types.attrs;
+      default = [];
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -20,7 +25,7 @@ in {
       positions.filename = "/tmp/promtail_positions.yaml";
 
     clients = [
-      { url = "http://nenya:3100/loki/api/v1/push"; }
+      { url = "https://loki.flowerbox.house/loki/api/v1/push"; }
     ];
 
     scrape_configs = [
@@ -40,7 +45,7 @@ in {
           }
         ];
       }
-    ];
+    ] ++ cfg.extraScrapeConfigs;
     };
   };
 }
