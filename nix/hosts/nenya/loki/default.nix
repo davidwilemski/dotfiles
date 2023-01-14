@@ -29,7 +29,7 @@
           };
           final_sleep = "0s";
         };
-        chunk_encoding = "lz4";
+        chunk_encoding = "zstd";
         max_chunk_age = "2h";
       };
 
