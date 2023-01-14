@@ -4,7 +4,7 @@ let
   system = builtins.currentSystem;
   isLinux = (builtins.elem "linux" (builtins.split "(-)" system));
 
-  customPkgs = import ../custom-packages.nix { };
+  customPkgs = import ../custom-packages.nix { inherit pkgs; };
 in
 {
   imports = [

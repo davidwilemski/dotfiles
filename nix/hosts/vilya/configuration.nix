@@ -14,7 +14,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev/disk/by-partuuid";
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
 
   security.sudo.wheelNeedsPassword = false;
 

@@ -1,9 +1,7 @@
 # https://sandervanderburg.blogspot.com/2014/07/managing-private-nix-packages-outside.html
-{ system ? builtins.currentSystem }:
+{ pkgs, system ? builtins.currentSystem }:
 
 let
-  pkgs = import <nixpkgs> { inherit system; };
-
   micropub-rs-repo = pkgs.fetchFromGitHub {
     owner = "davidwilemski";
     repo = "micropub-rs";
