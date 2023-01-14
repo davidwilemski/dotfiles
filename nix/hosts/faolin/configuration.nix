@@ -1,9 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
+let
+  customPkgs = import ../../custom-packages.nix { inherit pkgs; };
+in
 {
   imports =
     [
@@ -101,6 +103,10 @@
   # From https://github.com/Mic92/dotfiles/blob/c9971df4e35ce104a77b1c100ba1b51c3367d5fa/nixos/modules/xss-lock.nix
   programs.xss-lock.enable = true;
   programs.xss-lock.lockerCommand = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
+
+  # Custom build of atop with fix for
+  # https://github.com/NixOS/nixpkgs/issues/209416
+  programs.atop.package = pkgs.lib.mkForce customPkgs.atop;
   programs.atop.atopgpu.enable = true;
 
   systemd.user.services.xss-lock.serviceConfig = {
