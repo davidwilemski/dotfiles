@@ -1,5 +1,9 @@
 let
-  pkgs = import ../nixpkgs.nix {};
+  pkgs = import (import ../../nix/sources.nix).nixpkgs {
+    config = {
+      allowUnfree = true;
+    };
+  };
 in
 {
   network = {
