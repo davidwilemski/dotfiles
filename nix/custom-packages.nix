@@ -15,14 +15,6 @@ let
     rev = "ec4cf9ba27c5d5be21a8ad3a31de9ffe5455e5c1";
     sha256 = "wUKOzOMaNU5dRlSE7I39l1Wwz5tLWQRJvM1TJoq9pwo=";
   };
-
-  pynvml-nixpkgs = import (/home/dtw/dev/nixos/nixpkgs) {
-    inherit system;
-
-    config = {
-      allowUnfree = true;
-    };
-  };
 in
 rec {
   csv-diff = import ./pkgs/csv-diff {
@@ -78,7 +70,7 @@ rec {
     });
 
     atop = pkgs.atop.overrideAttrs (finalAttrs: previousAttrs: {
-      pythonPath = [ pynvml-nixpkgs.python3Packages.pynvml ];
+      pythonPath = [ pynvml ];
     });
 }
 
