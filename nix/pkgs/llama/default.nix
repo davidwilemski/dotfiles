@@ -1,5 +1,3 @@
-with import <nixpkgs> {};
-
 {buildGoPackage, fetchFromGitHub}:
 
 buildGoPackage rec {

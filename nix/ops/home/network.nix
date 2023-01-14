@@ -1,5 +1,9 @@
+let
+  pkgs = import ../nixpkgs.nix {};
+in
 {
   network = {
+    inherit pkgs;
     description = "home network";
   };
 
