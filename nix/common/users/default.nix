@@ -21,5 +21,6 @@ in {
   users.users.root.openssh.authorizedKeys.keys =
     config.users.users.dtw.openssh.authorizedKeys.keys;
 
+  home-manager.useGlobalPkgs = true;
   home-manager.users.dtw = (import ./dtw);
 }
