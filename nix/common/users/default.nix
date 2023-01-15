@@ -2,8 +2,10 @@
 
 let
   fetchKeys = username: (builtins.fetchurl "https://github.com/${username}.keys");
+
+  home-manager = import (import ../../nix/sources.nix).home-manager {};
 in {
-  imports = [ <home-manager/nixos> ];
+  imports = [ home-manager.nixos ];
 
   users.extraUsers.dtw.shell = pkgs.fish;
   users.users.dtw = {
