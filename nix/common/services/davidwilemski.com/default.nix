@@ -11,7 +11,7 @@ let
   ;
   inherit (lib.attrsets) optionalAttrs;
 
-  customPkgs = import ../../../custom-packages.nix {};
+  customPkgs = import ../../../custom-packages.nix { inherit pkgs; };
 
   cfg = config.dtw.services.davidwilemski-com;
 
