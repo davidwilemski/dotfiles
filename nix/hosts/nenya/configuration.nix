@@ -5,6 +5,7 @@
     ./gitea
     ./grafana
     ./loki
+    ./actual
     ./archivebox
     # ../../services/caddy
   ];
