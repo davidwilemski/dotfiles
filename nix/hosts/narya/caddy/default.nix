@@ -110,7 +110,16 @@ in
       useACMEHost = "flowerboxarchive.com";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy jeod:8000
+        reverse_proxy nenya:8000
+      '';
+    };
+
+    virtualHosts."www.flowerboxarchive.com" = {
+      hostName = "www.flowerboxarchive.com";
+      listenAddresses = [ "100.106.235.107" ];
+      useACMEHost = "flowerboxarchive.com";
+      extraConfig = ''
+        redir https://flowerboxarchive.com{uri}
       '';
     };
   };
