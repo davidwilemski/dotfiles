@@ -71,7 +71,6 @@ in
   # Main desktop
   "faolin" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    # deployment.targetHost = "192.168.0.156";
     deployment.targetHost = "faolin";
 
     networking.hostName = "faolin";
@@ -82,10 +81,9 @@ in
 
   };
 
-  # Router (tinypc 4x2.5gbe
+  # Router - tinypc 4x2.5gbe
   "barahir" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    # deployment.targetHost = "192.168.0.102";
     deployment.targetHost = "10.12.48.1";
 
     networking.hostName = "barahir";
