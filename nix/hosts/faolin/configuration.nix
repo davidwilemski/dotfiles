@@ -39,6 +39,7 @@ in
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.eno2.useDHCP = true;
+  networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlo1.useDHCP = true;
 
   # Configure network proxy if necessary
