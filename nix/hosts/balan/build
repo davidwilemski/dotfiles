@@ -1,0 +1,2 @@
+#! /bin/sh
+darwin-rebuild build -I darwin-config=$HOME/dotfiles/nix/hosts/balan/darwin-configuration.nix
