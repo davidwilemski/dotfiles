@@ -5,6 +5,6 @@ let
 in {
   home.packages = with customPkgs; [
     customPkgs.csv-diff
-    customPkgs.llama
+    # customPkgs.llama
   ];
 }
