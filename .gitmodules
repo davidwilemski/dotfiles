@@ -91,3 +91,6 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/cmp-nvim-lsp-signature-help"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/cmp-nvim-lsp-signature-help
 	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-unimpaired"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
