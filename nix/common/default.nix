@@ -24,5 +24,6 @@ in
   '';
 
   programs.atop.enable = isLinux;
+  programs.fish.enable = true;
   programs.mosh.enable = true;
 }
