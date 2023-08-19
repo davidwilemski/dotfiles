@@ -28,6 +28,17 @@ in {
       "*.swm"
 
       ".python-version"
+
+      # scala/sbt things
+      ".bloop"
+      ".bsp"
+      ".metals"
+      "project/.bloop"
+      "project/metals.sbt"
+      "project/project/"
+
+      "path/ruby/"
+
     ];
 
     extraConfig  = {
