@@ -65,12 +65,13 @@ rec {
       dontFixup = true;
     };
 
-    pynvml = pkgs.python3Packages.pynvml.overrideAttrs (finalAttrs: previousAttrs: {
-      patches = [ ./0001-locate-libnvidia-ml.so.1-on-NixOS.patch ];
-    });
+    # pynvml = pkgs.python3Packages.pynvml.overrideAttrs (finalAttrs: previousAttrs: {
+    #   patches = [ ./0001-locate-libnvidia-ml.so.1-on-NixOS.patch ];
+    # });
 
     atop = pkgs.atop.overrideAttrs (finalAttrs: previousAttrs: {
-      pythonPath = [ pynvml ];
+      # pythonPath = [ pynvml ];
+      makeWrapperArgs = ["--set LD_LIBRARY_PATH /var/run/opengl-driver/lib/"];
     });
 }
 
