@@ -9,7 +9,6 @@
 
   home.packages = with pkgs; [
     _1password
-    atop
     cargo
     clang_13
     fd
@@ -24,6 +23,9 @@
     inetutils
     jq
     killall
+    lazycli
+    lazydocker
+    lazygit
     morph
     neovim
     niv
