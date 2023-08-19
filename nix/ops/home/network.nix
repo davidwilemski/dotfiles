@@ -71,7 +71,7 @@ in
   # Main desktop
   "faolin" = { config, pkgs, lib, ... }: {
     deployment.targetUser = "root";
-    deployment.targetHost = "faolin";
+    deployment.targetHost = "faolin-1";
 
     networking.hostName = "faolin";
 
