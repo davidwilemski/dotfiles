@@ -44,7 +44,8 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 set hidden
-set colorcolumn=80  " absolute columns to highlight "
+" set colorcolumn=80  " absolute columns to highlight "
+set colorcolumn=100  " absolute columns to highlight "
 "set colorcolumn=+1,+21 " relative (to textwidth) columns to highlight "
 
 " NO TABS!!!
@@ -74,7 +75,7 @@ if has('mouse')
 endif
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>ie :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "vim sign column color same as number col
@@ -363,7 +364,8 @@ lua <<EOF
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
+      { name = 'buffer' },
+      { name = 'nvim_lsp_signature_help' }
     }
   })
 
