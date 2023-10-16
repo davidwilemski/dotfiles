@@ -22,6 +22,7 @@
     httpie
     inetutils
     jq
+    k9s
     killall
     lazycli
     lazydocker
@@ -30,6 +31,7 @@
     neovim
     niv
     nvd
+    ouch
     pstree
     pv
     qrencode
