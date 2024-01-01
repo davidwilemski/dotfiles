@@ -134,10 +134,19 @@
     };
   };
 
+  # Run a DNS-over-HTTPS proxy to point the dnsmasq resolver at
+  services.https-dns-proxy = {
+    enable = true;
+    # Defaults to quad9 but I'm gonna be explicit
+    provider.kind = "quad9";
+    extraArgs = [ "-vv" ];
+  };
+
   services.resolved.enable = false;
   services.dnsmasq = {
     enable = true;
-    servers = [ "9.9.9.9" "1.1.1.1" ];
+    # this is the https-dns-proxy server
+    servers = [ "127.0.0.1#5053" ];
     extraConfig = ''
       cache-size=2500
 
