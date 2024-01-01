@@ -36,6 +36,7 @@ in
       hostName = "o.davidwilemski.com";
       listenAddresses = [ "206.55.186.217" ];
       extraConfig = ''
+        header ?Cache-Control "max-age=3600"
         encode zstd gzip
         reverse_proxy narya:3030
       '';

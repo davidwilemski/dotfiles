@@ -5,8 +5,8 @@ let
   micropub-rs-repo = pkgs.fetchFromGitHub {
     owner = "davidwilemski";
     repo = "micropub-rs";
-    rev = "367a57e84a65006f8b388b860f9f6a5a72cabda4";
-    sha256 = "a9dXbkex/Mzeu0fwcZCVefNYdIInHTqNbdfUY1Isvbg=";
+    rev = "51dbc4b2399a0344026014cd815c6e7adb1bc0a0";
+    sha256 = "16zOJFpHwjgqWUxuMD7AOpHBV0/mjDezPPyHQFInmlE=";
   };
 
   rustyblobjectstore-repo = pkgs.fetchFromGitHub {
