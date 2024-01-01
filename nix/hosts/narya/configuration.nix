@@ -21,6 +21,7 @@
       site = {
         site_name = "David's Blog";
         menu_items = [
+          ["About Me" "/about"]
           ["Archive" "/archives"]
         ];
         socials = [
@@ -31,7 +32,7 @@
       };
 
       micropub = {
-        host_website = "https://www.davidwilemski.com";
+        host_website = "https://www.davidwilemski.com/";
         media_endpoint = "https://www.davidwilemski.com/media";
         micropub_endpoint = "/micropub";
       };
