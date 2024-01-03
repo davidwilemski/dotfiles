@@ -42,6 +42,9 @@ in {
     ];
 
     extraConfig  = {
+      init = {
+        defaultBranch = "main";
+      };
       branch = {
         autosetuprebase = "always";
       };
