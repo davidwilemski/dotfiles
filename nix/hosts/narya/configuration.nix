@@ -35,6 +35,7 @@
         host_website = "https://www.davidwilemski.com/";
         media_endpoint = "https://www.davidwilemski.com/media";
         micropub_endpoint = "/micropub";
+        current_timezone_offset = -6 * 3600;
       };
     };
   };
