@@ -59,7 +59,7 @@
       # TODO
       # dependsOn = [ "archivebox-sonic" ];
 
-      image = "archivebox/archivebox:dev";
+      image = "archivebox/archivebox:0.7.2";
       cmd = ["server" "--quick-init" "0.0.0.0:8000"];
 
       volumes = [
@@ -81,7 +81,7 @@
     };
 
     "archivebox-sonic" = {
-      image = "valeriansaliou/sonic:v1.3.0";
+      image = "valeriansaliou/sonic:v1.4.8";
 
       volumes = [
         "/var/lib/archivebox/sonic:/var/lib/sonic/store/"
