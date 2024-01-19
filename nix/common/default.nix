@@ -14,7 +14,7 @@ in
     ./services/systemd-resolved
   ];
 
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
 
   nix.settings.auto-optimise-store = true;
 

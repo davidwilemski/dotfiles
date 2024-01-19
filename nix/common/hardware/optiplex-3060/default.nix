@@ -25,8 +25,6 @@ in {
 
   networking.interfaces.enp1s0.useDHCP = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   networking.firewall.enable = false;
 
   users.users.root.openssh.authorizedKeys.keyFiles = [ (fetchKeys "davidwilemski") ];
@@ -46,6 +44,7 @@ in {
 
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "zfs";
 
   system.stateVersion = "21.11";
 }

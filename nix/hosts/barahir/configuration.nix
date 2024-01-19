@@ -190,8 +190,6 @@
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   networking.hostName = "barahir";
 
   environment.systemPackages = with pkgs; [ wget vim zfs ];

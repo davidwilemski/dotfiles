@@ -3,8 +3,7 @@
 {
   virtualisation.oci-containers.containers = {
     "actual-server" = {
-      # TODO use non-local image
-      image = "actual-server_actual_server";
+      image = "ghcr.io/actualbudget/actual-server";
 
       volumes = [
         "/var/lib/actual-server/server-files:/app/server-files"

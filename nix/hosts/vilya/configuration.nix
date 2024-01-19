@@ -20,8 +20,6 @@
 
   networking.interfaces.enp1s0.useDHCP = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   networking.hostName = "vilya";
   networking.firewall.enable = false;
 
@@ -33,6 +31,7 @@
 
   services.tailscale.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "zfs";
 
   dtw.systemd-resolved.enable = true;
   dtw.promtail = {

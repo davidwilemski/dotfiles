@@ -1,26 +1,26 @@
 {
     "home-manager": {
-        "branch": "release-23.05",
+        "branch": "release-23.11",
         "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
         "homepage": "https://nix-community.github.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2a6679aa9cc3872c29ba2a57fe1b71b3e3c5649f",
-        "sha256": "17bhps716gn3g49n959ks9ympmg5808l3c5c06fx88b6d2qax57y",
+        "rev": "85c3b600f660abd86e94cbcd1c46733943197a07",
+        "sha256": "1yymjn8mcmjpwq638mnsyx924xjbfqarg3kmsiksgqp3z7aqm4sv",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/2a6679aa9cc3872c29ba2a57fe1b71b3e3c5649f.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/85c3b600f660abd86e94cbcd1c46733943197a07.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "release-23.05",
+        "branch": "release-23.11",
         "description": "Nix Packages collection",
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "90677a4464d3de3efdc6b6ec7c8ae4b830997293",
-        "sha256": "0a8r80shyl1239zw81r78fxfp7q02c974pv9461yj8h5szmafcj3",
+        "rev": "3d7dbcfb56a1cff0729280da3f1185044628975b",
+        "sha256": "127fp55d337vqbc9235sr3ag90iz7pqh5h5nls4klbgzbjyv807k",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/90677a4464d3de3efdc6b6ec7c8ae4b830997293.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/3d7dbcfb56a1cff0729280da3f1185044628975b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
