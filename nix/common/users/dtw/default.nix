@@ -16,8 +16,8 @@
   programs.fish = {
     enable = true;
     plugins = with pkgs.fishPlugins; [
-      async-prompt
-      pure
+      { name ="async-prompt"; src=pkgs.fishPlugins.async-prompt.src; }
+      { name ="pure"; src=pkgs.fishPlugins.pure.src; }
     ];
     interactiveShellInit = ''
       set -g async_prompt_functions _pure_prompt_git
