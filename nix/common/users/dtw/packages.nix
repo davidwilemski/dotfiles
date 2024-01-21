@@ -13,6 +13,8 @@
     clang_13
     fd
     file
+    fishPlugins.async-prompt
+    fishPlugins.pure
     flyctl
     fpp
     fzf
