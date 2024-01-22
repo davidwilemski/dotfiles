@@ -94,3 +94,9 @@
 [submodule "roles/dotfiles/files/.vim/pack/dtw/start/vim-unimpaired"]
 	path = roles/dotfiles/files/.vim/pack/dtw/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/lazygit.nvim"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/lazygit.nvim
+	url = https://github.com/kdheepak/lazygit.nvim
+[submodule "roles/dotfiles/files/.vim/pack/dtw/start/fzf.vim"]
+	path = roles/dotfiles/files/.vim/pack/dtw/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim

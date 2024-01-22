@@ -261,12 +261,16 @@ function! FuzzyGitStatus()
     call SelectaCommand(cmd, "", ":e")<cr>
 endfunction
 
-nnoremap <leader>m :call SelectaCommand("fd -H -I -t f", "", ":e")<cr>
+"nnoremap <leader>m :call SelectaCommand("fd -H -I -t f", "--preview 'cat {}' --preview-window '~3'", ":e")<cr>
+nnoremap <leader>m :Files<cr>
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>t :call SelectaCommand("fd -H -t f", "", ":e")<cr>
-nnoremap <leader>b :call FuzzyBuffer()<cr>
-nnoremap <leader>g :call FuzzyGitStatus()<cr>
+"nnoremap <leader>t :call SelectaCommand("fd -H -t f", "", ":e")<cr>
+nnoremap <leader>t :GFiles<cr>
+"nnoremap <leader>b :call FuzzyBuffer()<cr>
+nnoremap <leader>b :Buffers<cr>
+"nnoremap <leader>g :call FuzzyGitStatus()<cr>
+nnoremap <leader>g ::GFiles?<cr>
 
 
 " Quickfix keybind
@@ -314,6 +318,11 @@ nnoremap <Leader>0 :Ttoggle<cr>
 
 " nvim-cmp
 set completeopt=menu,menuone,noselect
+
+" lazygit.nvim
+let g:lazygit_floating_window_use_plenary = 1
+" setup mapping to call :LazyGit
+nnoremap <silent> <leader>gg :LazyGit<CR>
 
 " Initially copied right from the README
 lua <<EOF

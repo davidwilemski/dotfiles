@@ -17,7 +17,9 @@
     fishPlugins.pure
     flyctl
     fpp
+    fswatch
     fzf
+    gh
     git
     git-annex
     git-revise
