@@ -1,7 +1,7 @@
 { config, pkgs, modulesPath, lib, ... }: {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  # the optiplex 2080 has nvme storage
+  # the optiplex 3080 has nvme storage
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
