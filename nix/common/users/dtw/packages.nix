@@ -47,6 +47,7 @@
     tmux
     tree
     xh
+    zellij
     zstd
   ];
 }
