@@ -28,6 +28,8 @@
 
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   programs.fzf.enableFishIntegration = true;
   programs.fzf.enableBashIntegration = true;
 
