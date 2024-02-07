@@ -169,6 +169,9 @@
       # narya
       dhcp-host=b8:85:84:b6:c9:ff,10.12.48.5
 
+      # emondsfield
+      dhcp-host=6c:2b:59:ea:72:7b,10.12.48.10
+
       # Broadlink remotes (need static ip for home assistant)
       # TODO see if I can move these to the iot subnet
       # RM4-Pro-Universal-Remote-Kitchen

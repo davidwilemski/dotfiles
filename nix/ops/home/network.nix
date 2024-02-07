@@ -92,4 +92,18 @@ in
       ../../hosts/barahir/configuration.nix
     ];
   };
+
+  "emondsfield" = { config, pkgs, lib, ... }: {
+    deployment.targetUser = "root";
+    deployment.targetHost = "10.12.48.10";
+
+    networking.hostName = "emondsfield";
+    networking.hostId = "ec457d09";
+
+    imports = [
+      # Optiplex 7060
+      ../../common/hardware/optiplex-3060
+      ../../hosts/emondsfield/configuration.nix
+    ];
+  };
 }
